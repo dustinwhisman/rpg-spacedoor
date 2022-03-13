@@ -8,6 +8,7 @@ const d10Roll = roll('4d10');
 const d12Roll = roll('5d12');
 const d20Roll = roll('6d20');
 
+/* eslint-disable no-console */
 console.log(`Rolling d4: ${JSON.stringify({
   d4Roll,
   total: sumResults(d4Roll, 0),
@@ -37,3 +38,4 @@ console.log(`Rolling 6d20 + 5: ${JSON.stringify({
   d20Roll,
   total: sumResults(d20Roll, 5),
 })}`);
+/* eslint-enable no-console */
