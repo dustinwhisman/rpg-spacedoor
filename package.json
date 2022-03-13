@@ -1,0 +1,33 @@
+{
+  "name": "eleventy-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm run clean",
+    "prebuild": "npm run clean",
+    "start": "run-p eleventy:dev sass:dev",
+    "build": "run-s eleventy:build sass:build",
+    "eleventy:dev": "eleventy --serve",
+    "eleventy:build": "eleventy",
+    "sass:dev": "sass --watch --embed-source-map src/scss:dist",
+    "sass:build": "sass --no-source-map --style=compressed src/scss:dist",
+    "clean": "rimraf dist",
+    "lint": "run-s lint:html lint:css",
+    "prelint:html": "npm run build",
+    "lint:html": "pa11y-ci -c .pa11yci.json './dist/**/*.html'",
+    "lint:css": "stylelint 'src/scss/**/*.scss' --color --formatter verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.0",
+    "npm-run-all": "^4.1.5",
+    "pa11y-ci": "^3.0.1",
+    "rimraf": "^3.0.2",
+    "sass": "^1.49.7",
+    "stylelint": "^14.5.1",
+    "stylelint-config-standard-scss": "^3.0.0"
+  }
+}
