@@ -4,11 +4,11 @@ export const roll = (notation: string): number[] => {
   const results = [];
   const [dice, sides] = notation.split('d');
 
-  if (dice !== '' && !Number.isNaN(Number.parseInt(dice, 10))) {
+  if (!Number.isNaN(Number.parseInt(dice, 10))) {
     numberOfDice = Number.parseInt(dice, 10);
   }
 
-  if (sides !== '' && !Number.isNaN(Number.parseInt(sides, 10))) {
+  if (!Number.isNaN(Number.parseInt(sides, 10))) {
     numberOfSides = Number.parseInt(sides, 10);
   }
 
