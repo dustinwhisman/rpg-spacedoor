@@ -1,0 +1,5 @@
+@use '../tools/functions';
+
+li {
+  font-size: functions.fluid-size('base');
+}
