@@ -1,0 +1,24 @@
+@use '../tools/functions';
+
+.cmp-content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: functions.fluid-size('kilo');
+
+  @media (min-width: 50rem) {
+    grid-template-columns: auto 1fr;
+  }
+
+  &__sidebar {
+    display: none;
+
+    @media (min-width: 50rem) {
+      display: block;
+    }
+  }
+
+  &__navigation {
+    list-style: none;
+    padding-inline: 0;
+  }
+}

@@ -1,0 +1,9 @@
+.cmp-menu-link {
+  @media (min-width: 50rem) {
+    display: none;
+  }
+
+  &__content--visible {
+    display: block;
+  }
+}

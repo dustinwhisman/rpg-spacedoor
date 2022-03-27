@@ -21,11 +21,15 @@
     {% endblock %}
     <main>
       {% block content %}
-        <article class="cmp-container cmp-stack">
-          {{ content | safe }}
-        </article>
+        <div class="cmp-content-grid cmp-container">
+          {% include "navigation.njk" %}
+          <article class="cmp-stack">
+            {{ content | safe }}
+          </article>
+        </div>
       {% endblock %}
     </main>
+    <script src="/sitewide.js" type="module"></script>
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {

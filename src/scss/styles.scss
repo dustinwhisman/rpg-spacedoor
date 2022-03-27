@@ -21,6 +21,9 @@
 @use 'components/container';
 @use 'components/stack';
 @use 'components/cluster';
+@use 'components/content-grid';
+@use 'components/button-as-link';
+@use 'components/menu-link';
 
 // utilities, prefix with `.util-` and include last for the cascade
 @use 'utilities/utilities';
