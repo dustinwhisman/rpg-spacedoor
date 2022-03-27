@@ -2,6 +2,7 @@
 @use 'sass:math';
 @use '../settings/modular-scale';
 @use '../settings/font-families';
+@use '../settings/colors';
 
 @function scale-value($key) {
   @return map.get(modular-scale.$scale-values, $key);
@@ -9,6 +10,10 @@
 
 @function font-family($key) {
   @return map.get(font-families.$font-families, $key);
+}
+
+@function theme-color($key) {
+  @return map.get(colors.$colors, $key);
 }
 
 @function fluid-size($key) {

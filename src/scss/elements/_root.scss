@@ -1,5 +1,18 @@
 @use '../tools/functions';
 
 :root {
+  --paper: #{functions.theme-color('gray-95')};
+  --ink: #{functions.theme-color('gray-5')};
+  --link-color: #{functions.theme-color('dark-blue')};
+
   font-family: functions.font-family('serif');
+  scroll-snap-type: y mandatory;
+  background-color: var(--paper);
+  color: var(--ink);
+
+  @media (prefers-color-scheme: dark) {
+    --paper: #{functions.theme-color('gray-5')};
+    --ink: #{functions.theme-color('gray-95')};
+    --link-color: #{functions.theme-color('light-blue')};
+  }
 }
