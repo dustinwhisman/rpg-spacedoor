@@ -49,6 +49,8 @@
   "dependencies": {
     "dotenv": "^16.0.0",
     "firebase": "^9.6.10",
-    "firebase-admin": "^10.0.2"
+    "firebase-admin": "^10.0.2",
+    "middy": "^0.36.0",
+    "node-fetch": "^3.2.3"
   }
 }
