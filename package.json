@@ -22,7 +22,8 @@
     "lint:js": "eslint . --ext .js,.ts",
     "test": "jest --config=jest.config.js",
     "test:ci": "npm run test -- --coverage",
-    "test:mutate": "stryker run"
+    "test:mutate": "stryker run",
+    "update-deps": "npx npm-check-updates --doctor -u"
   },
   "keywords": [],
   "author": "",
