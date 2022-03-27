@@ -1,0 +1,10 @@
+@use '../tools/functions';
+
+input {
+  background-color: var(--paper);
+  color: var(--ink);
+  border: 0.125em solid var(--ink);
+  padding: 0.25em 0.5em;
+  width: min(40ch, 100%);
+  font-size: functions.fluid-size('deci');
+}

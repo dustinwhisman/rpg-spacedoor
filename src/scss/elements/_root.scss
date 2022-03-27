@@ -4,6 +4,7 @@
   --paper: #{functions.theme-color('gray-95')};
   --ink: #{functions.theme-color('gray-5')};
   --link-color: #{functions.theme-color('dark-blue')};
+  --shadow-color: #{functions.theme-color('gray-50')};
 
   font-family: functions.font-family('serif');
   scroll-snap-type: y mandatory;

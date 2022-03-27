@@ -1,0 +1,12 @@
+@use '../tools/functions';
+
+button {
+  background-color: var(--paper);
+  color: var(--ink);
+  border: 0.125em solid var(--ink);
+  padding: 0.25em 0.5em;
+  width: max-content;
+  max-width: 100%;
+  font-size: functions.fluid-size('deci');
+  box-shadow: 0.2em 0.2em 0 0 var(--shadow-color);
+}

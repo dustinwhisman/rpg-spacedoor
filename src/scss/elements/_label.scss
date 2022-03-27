@@ -1,0 +1,8 @@
+@use '../tools/functions';
+
+label {
+  display: block;
+  max-width: max-content;
+  font-size: functions.fluid-size('base');
+  margin-block-end: 0.25em;
+}
