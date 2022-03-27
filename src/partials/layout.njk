@@ -30,6 +30,7 @@
       {% endblock %}
     </main>
     <script src="/sitewide.js" type="module"></script>
+    {% block scripts %}{% endblock %}
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {

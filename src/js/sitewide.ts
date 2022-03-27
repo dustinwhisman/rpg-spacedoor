@@ -1,5 +1,3 @@
 import { initializeDisclosureWidgets } from './disclosure';
 
-(() => {
-  initializeDisclosureWidgets();
-})();
+initializeDisclosureWidgets();

@@ -1,0 +1,44 @@
+---
+title: Log in or Sign Up
+description: Log in to an existing account or sign up. Either way, all that is required is your email address.
+---
+
+{% extends "layout.njk" %}
+
+{% block content %}
+  <div class="cmp-container cmp-stack">
+    <h1>
+      Log In or Sign Up
+    </h1>
+    <p>
+      If you don't have an account, one will be created for you. Either way, you
+      will get a magic link sent to your email address that you will use to log
+      in.
+    </p>
+    <form class="cmp-stack" data-sign-in-form>
+      <p data-error-message hidden>
+        Something went wrong when trying to sign you in. Please double check
+        your email address and try again.
+      </p>
+      <div>
+        <label for="sign-in-email">
+          Email
+        </label>
+        <input id="sign-in-email" type="email" name="sign-in-email">
+      </div>
+      <div>
+        <button type="submit">
+          Request Magic Link
+        </button>
+      </div>
+    </form>
+    <p data-success-message hidden>
+      Huzzah! Check your email for a link to finish logging in. (You can close
+      this tab now. The link will open a new one.)
+    </p>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+  <script src="/login.js" type="module"></script>
+{% endblock %}

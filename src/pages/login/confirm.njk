@@ -1,0 +1,47 @@
+---
+title: Confirm Login
+description: Ideally, you'll be redirected as soon as you hit this page, but we may need to confirm your email address if you clicked the link on a different device than the one you requested the link from.
+---
+
+{% extends "layout.njk" %}
+
+{% block content %}
+  <div class="cmp-container cmp-stack">
+    <h1>
+      Confirm Login
+    </h1>
+    <p data-wait-message>
+      Hang tight for just a moment while we confirm your login. This shouldn't
+      take long.
+    </p>
+    <form class="cmp-stack" data-confirm-form hidden>
+      <div data-error-message hidden>
+        <p>
+          Something went wrong when trying to finish signing you in. Please go
+          back to the <a href="/login">login page</a> and request a new link.
+        </p>
+      </div>
+      <div>
+        <label for="confirm-email">
+          Email
+        </label>
+        <input id="confirm-email" type="email" name="confirm-email">
+      </div>
+      <div>
+        <button type="submit">
+          Confirm Email Address
+        </button>
+      </div>
+    </form>
+    <div data-success-message hidden>
+      <p>
+        Huzzah! Now we can finish what we started. You should be redirected
+        shortly.
+      </p>
+    </div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+  <script src="/confirm-login.js" type="module"></script>
+{% endblock %}
