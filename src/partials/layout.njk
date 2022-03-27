@@ -15,13 +15,9 @@
     <link rel="apple-touch-icon" href="maskable_icon.png">
     <meta name="theme-color" content="#202020">
   </head>
-  <body>
+  <body data-auth-state="logged-out">
     {% block header %}
-      <header>
-        <div class="cmp-container">
-          <p>This is the header.</p>
-        </div>
-      </header>
+      {% include "header.njk" %}
     {% endblock %}
     <main>
       {% block content %}
@@ -30,13 +26,6 @@
         </article>
       {% endblock %}
     </main>
-    {% block footer %}
-      <footer>
-        <div class="cmp-container">
-          <p>This is the footer.</p>
-        </div>
-      </footer>
-    {% endblock %}
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {

@@ -1,6 +1,7 @@
 // generic level, should have very low specificity
 @use 'generic/reset';
 @use 'generic/sticky-footer';
+@use 'generic/auth-state';
 
 // elements, default rules that should be easy to override
 @use 'elements/root';
@@ -14,10 +15,12 @@
 @use 'elements/code';
 @use 'elements/a';
 @use 'elements/li';
+@use 'elements/nav';
 
 // components for more specific styles, use BEM style for selectors
 @use 'components/container';
 @use 'components/stack';
+@use 'components/cluster';
 
 // utilities, prefix with `.util-` and include last for the cascade
 @use 'utilities/utilities';

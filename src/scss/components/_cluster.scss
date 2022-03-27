@@ -1,0 +1,11 @@
+@use '../tools/functions';
+
+.cmp-cluster {
+  display: flex;
+  gap: functions.fluid-size('base');
+  flex-wrap: wrap;
+
+  &--between {
+    justify-content: space-between;
+  }
+}
