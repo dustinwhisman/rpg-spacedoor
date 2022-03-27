@@ -1,0 +1,54 @@
+type Character {
+  uid: ID
+  name: String
+  game: String
+  stats: [Stat] @relation
+  damageDie: String
+  numDamageDie: Int
+  damageBonus: Int
+  healingDie: String
+  numHealingDie: Int
+  healingBonus: Int
+  damageThreshold: Int
+  actionPointMax: Int
+  actionPoints: Int
+  experiencePoints: Int
+  baseHitPointMax: Int
+  hitPointMultiplier: Int
+  hitPoints: Int
+  hitPointRegen: Int
+  baseShieldHitPointMax: Int
+  shieldHitPointMultiplier: Int
+  shieldHitPoints: Int
+  shieldHitPointRegen: Int
+  vulnerabilities: [String]
+  resistances: [String]
+  immunities: [String]
+  upgrades: [Upgrade] @relation
+}
+
+type Stat {
+  character: Character
+  name: String
+  die: String
+  bonus: Int
+  dcBonus: Int
+  skills: [Skill] @relation
+}
+
+type Skill {
+  name: String
+  die: String
+  bonus: Int
+  stat: Stat
+}
+
+type Upgrade {
+  character: Character
+  name: String
+  description: String
+}
+
+type Query {
+  charactersByGame(uid: ID!, game: String): [Character]
+}
