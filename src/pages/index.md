@@ -1,23 +1,38 @@
 ---
-title: Home Page
-description: This is the home page. It isn't very interesting right now.
+title: Overview
+description: Learn about the basic premise of the Spacedoor! RPG system.
 layout: layout.njk
 ---
 
-# The Integrated Principles of the Structural Dynamics of Flow
+# Spacedoor!
 
-## The Integrated Principles of the Structural Dynamics of Flow
+You work for a secret military organization that controls a device of mysterious
+origins that can create wormholes to other devices throughout the galaxy.
 
-### The Integrated Principles of the Structural Dynamics of Flow
+You and your team are explorers, and it is your mission to represent Earth as
+you make allies and enemies, survive alien threats, and do some light
+colonialism.
 
-#### The Integrated Principles of the Structural Dynamics of Flow
+## How to Play
 
-<div class="cmp-stack">
+This is a tabletop role-playing game that is meant to be played by 4 to 6
+people, where one of them is the Game Manager (GM) who describes settings, sets
+up scenarios, and plays Non-Player Characters (NPCs), and the other players play
+their own characters, or Player Characters (PCs).
 
-You are on the home page! Try editing this file to see things change in real time, and inspect the HTML to make sure everything is valid.
+In general, the GM will present the PCs with challenges to overcome, such as
+mysteries or puzzles, social conflicts, or combat, and the PCs will take
+actions, in character, to respond to those challenges. Whenever the success of
+an action is in question, the dice decide. The GM will ask for a roll, and the
+PC will roll dice based on their stats to determine the outcome.
 
-Since these paragraphs are surrounded by a `.cmp-stack` element, they should have a nice visual rhythm.
+You'll need at least one set of polyhedral dice (or a digital dice roller), and
+it will help to have pencils and paper for note-taking and managing character
+sheets. If you have tokens or poker chips or anything like that, those will be
+useful for tracking purposes, but they aren't strictly necessary.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+For PCs, check out the [character creation guide](/character-creation) to get
+started with building your character.
 
-</div>
+For GMs, check out our [tips and tricks](/gm-tips-and-tricks) for running a fun
+game.

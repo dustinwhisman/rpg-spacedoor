@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ title }}</title>
+    <title>{{ title }} | Spacedoor!</title>
     <meta name="description" content="{{ description }}">
 
     <link rel="stylesheet" href="/styles.css">
@@ -25,7 +25,7 @@
     {% endblock %}
     <main>
       {% block content %}
-        <article class="cmp-container">
+        <article class="cmp-container cmp-stack">
           {{ content | safe }}
         </article>
       {% endblock %}
