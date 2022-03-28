@@ -26,7 +26,9 @@ const StatsAndSkills = () => (
         <p>{stat.description}</p>
         {stat.skills.length > 0 && (
           <>
-            <h4>{stat.name} Skills</h4>
+            <h4>
+              {`${stat.name} Skills`}
+            </h4>
             <dl>
               {stat.skills.map((skill) => (
                 <React.Fragment key={skill.name}>
