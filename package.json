@@ -20,7 +20,7 @@
     "prelint:html": "npm run build",
     "lint:html": "pa11y-ci -c .pa11yci.json './dist/**/*.html'",
     "lint:css": "stylelint 'src/scss/**/*.scss' --color --formatter verbose",
-    "lint:js": "eslint . --ext .js,.ts",
+    "lint:js": "eslint . --ext .js,.ts,.tsx",
     "test": "jest --config=jest.config.js",
     "test:ci": "npm run test -- --coverage",
     "test:mutate": "stryker run",
@@ -48,10 +48,14 @@
     "ts-jest": "^27.1.4"
   },
   "dependencies": {
+    "@types/react": "^17.0.43",
+    "@types/react-dom": "^17.0.14",
     "dotenv": "^16.0.0",
     "firebase": "^9.6.10",
     "firebase-admin": "^10.0.2",
     "middy": "^0.36.0",
-    "node-fetch": "^3.2.3"
+    "node-fetch": "^3.2.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
