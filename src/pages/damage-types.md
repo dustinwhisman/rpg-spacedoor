@@ -10,4 +10,4 @@ Weapons and environments can deal different types of damage. Each character will
 have some vulnerabilities and some resistances to different damage types, which
 can either increase or reduce the damage taken.
 
-<!-- TODO: include dynamic damage type info -->
+<div id="damage-types"></div>

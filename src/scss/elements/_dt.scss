@@ -1,0 +1,9 @@
+@use '../tools/functions';
+
+dt {
+  font-size: functions.fluid-size('base');
+
+  &:not(:first-child) {
+    margin-block-start: functions.fluid-size('deca');
+  }
+}

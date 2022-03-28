@@ -1,0 +1,6 @@
+@use '../tools/functions';
+
+dd {
+  font-size: functions.fluid-size('base');
+  margin-block-start: functions.fluid-size('milli');
+}

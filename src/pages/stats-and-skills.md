@@ -17,4 +17,4 @@ Stats and skills can be [upgraded](/upgrades) in a variety of ways, including:
 - Adding a bonus die (so you might roll a d8 and a d4)
 - Adding a permanent bonus to rolls (+1 to the die roll)
 
-<!-- TODO: add in dynamic content about stats -->
+<div id="stats-and-skills" class="cmp-stack"></div>

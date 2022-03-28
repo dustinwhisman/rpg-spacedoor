@@ -11,4 +11,4 @@ characters or enemies. As written, the rules mostly apply to combat situations,
 but they can be used in role-play as well (GM discretion for what happens in
 those cases).
 
-<!-- TODO: include dynamic status effect info -->
+<div id="status-effects"></div>

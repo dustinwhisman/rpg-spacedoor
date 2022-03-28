@@ -19,6 +19,8 @@
 @use 'elements/input';
 @use 'elements/label';
 @use 'elements/button';
+@use 'elements/dt';
+@use 'elements/dd';
 
 // components for more specific styles, use BEM style for selectors
 @use 'components/container';

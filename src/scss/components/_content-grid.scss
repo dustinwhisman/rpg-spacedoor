@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: functions.fluid-size('kilo');
+  padding-block-end: functions.fluid-size('kilo');
 
   @media (min-width: 50rem) {
     grid-template-columns: auto 1fr;
