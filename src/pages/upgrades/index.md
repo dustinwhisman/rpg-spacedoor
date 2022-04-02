@@ -11,3 +11,4 @@ abilities. However, you need to meet the prerequisites before you can purchase
 an upgrade.
 
 <div id="stat-upgrades" class="cmp-stack"></div>
+<div id="skill-upgrades" class="cmp-stack"></div>
