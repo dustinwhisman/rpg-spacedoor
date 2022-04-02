@@ -16,3 +16,4 @@ an upgrade.
 <div id="offense-upgrades" class="cmp-stack"></div>
 <div id="defense-upgrades" class="cmp-stack"></div>
 <div id="action-upgrades" class="cmp-stack"></div>
+<div id="bonus-action-upgrades" class="cmp-stack"></div>
