@@ -15,3 +15,4 @@ an upgrade.
 <div id="health-upgrades" class="cmp-stack"></div>
 <div id="offense-upgrades" class="cmp-stack"></div>
 <div id="defense-upgrades" class="cmp-stack"></div>
+<div id="action-upgrades" class="cmp-stack"></div>
