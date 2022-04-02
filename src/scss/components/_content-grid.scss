@@ -21,5 +21,9 @@
   &__navigation {
     list-style: none;
     padding-inline: 0;
+
+    &--level-2 {
+      padding-inline-start: functions.fluid-size('base');
+    }
   }
 }
