@@ -113,3 +113,37 @@ export const canUseStatForSkill = (
 
   return true;
 };
+
+export const isLessThanHalfOfStat = (
+  character: Character,
+  statName: string,
+  property: keyof Character,
+): boolean => {
+  const { die } = character.stats.find((stat) => stat.name === statName) ?? {};
+
+  if (!die) {
+    return false;
+  }
+
+  const currentValue = character[property];
+  const [, dieValue] = die.split('d');
+  const numericDieValue = Number.parseInt(dieValue, 10);
+  if (Number.isNaN(numericDieValue) || currentValue >= (numericDieValue / 2)) {
+    return false;
+  }
+
+  return true;
+};
+
+export const canIncreaseDie = (
+  character: Character,
+  property: keyof Character,
+  value: string,
+): boolean => {
+  const currentValue = character[property];
+  if (currentValue === value) {
+    return true;
+  }
+
+  return false;
+};

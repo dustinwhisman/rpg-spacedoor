@@ -6,6 +6,7 @@ import { renderStatusEffects } from './components/StatusEffects';
 import { renderDamageTypes } from './components/DamageTypes';
 import { renderStatUpgrades } from './components/upgrades/StatUpgrades';
 import { renderSkillUpgrades } from './components/upgrades/SkillUpgrades';
+import { renderHealthUpgrades } from './components/upgrades/HealthUpgrades';
 
 if (localStorage.getItem('is-logged-in')) {
   updateAuthState(true);
@@ -27,3 +28,4 @@ renderStatusEffects();
 renderDamageTypes();
 renderStatUpgrades();
 renderSkillUpgrades();
+renderHealthUpgrades();
