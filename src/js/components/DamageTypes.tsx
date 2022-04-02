@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { damageTypes } from '../rules/damage-types';
 
 const DamageTypes = () => (
@@ -14,6 +14,7 @@ export const renderDamageTypes = () => {
   const element = document.querySelector('#damage-types');
 
   if (element) {
-    render(<DamageTypes />, element);
+    const root = createRoot(element);
+    root.render(<DamageTypes />);
   }
 };

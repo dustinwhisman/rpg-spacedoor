@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { stats } from '../rules/stats';
 
 const StatsAndSkills = () => (
@@ -48,6 +48,7 @@ export const renderStats = () => {
   const element = document.querySelector('#stats-and-skills');
 
   if (element) {
-    render(<StatsAndSkills />, element);
+    const root = createRoot(element);
+    root.render(<StatsAndSkills />);
   }
 };
