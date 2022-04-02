@@ -147,3 +147,11 @@ export const canIncreaseDie = (
 
   return false;
 };
+
+export const isUpgradeAvailable = (
+  character: Character,
+  upgradeName: string,
+): boolean => {
+  const { upgrades } = character;
+  return !upgrades.some((upgrade) => upgrade.name === upgradeName);
+};
