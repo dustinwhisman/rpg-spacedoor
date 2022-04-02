@@ -8,6 +8,7 @@ import { renderStatUpgrades } from './components/upgrades/StatUpgrades';
 import { renderSkillUpgrades } from './components/upgrades/SkillUpgrades';
 import { renderHealthUpgrades } from './components/upgrades/HealthUpgrades';
 import { renderDefenseUpgrades } from './components/upgrades/DefenseUpgrades';
+import { renderOffenseUpgrades } from './components/upgrades/OffenseUpgrades';
 
 if (localStorage.getItem('is-logged-in')) {
   updateAuthState(true);
@@ -31,3 +32,4 @@ renderStatUpgrades();
 renderSkillUpgrades();
 renderHealthUpgrades();
 renderDefenseUpgrades();
+renderOffenseUpgrades();
