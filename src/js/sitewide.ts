@@ -4,6 +4,7 @@ import { updateAuthState } from './auth/update-auth-state';
 import { renderStats } from './components/StatsAndSkills';
 import { renderStatusEffects } from './components/StatusEffects';
 import { renderDamageTypes } from './components/DamageTypes';
+import { renderStatUpgrades } from './components/upgrades/StatUpgrades';
 
 if (localStorage.getItem('is-logged-in')) {
   updateAuthState(true);
@@ -23,3 +24,4 @@ observeAuthState();
 renderStats();
 renderStatusEffects();
 renderDamageTypes();
+renderStatUpgrades();

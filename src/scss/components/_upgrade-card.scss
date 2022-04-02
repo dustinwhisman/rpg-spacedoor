@@ -1,0 +1,37 @@
+@use '../tools/functions';
+
+.cmp-upgrade-card {
+  display: flex;
+  flex-direction: column;
+  gap: functions.fluid-size('deci');
+  padding: functions.fluid-size('deci');
+  background-color: var(--paper);
+  border: 0.125rem solid var(--ink);
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    gap: functions.fluid-size('base');
+    margin-block-start: 1rem;
+  }
+
+  &__name {
+    font-size: functions.fluid-size('deci');
+    text-transform: uppercase;
+  }
+
+  &__description {
+    font-size: functions.fluid-size('deci');
+    margin-block-end: 0.5rem;
+  }
+
+  &__cost {
+    font-size: functions.fluid-size('deci');
+    margin-block-start: auto;
+    text-align: right;
+  }
+
+  &__cost-label {
+    text-transform: uppercase;
+  }
+}

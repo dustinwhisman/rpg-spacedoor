@@ -29,6 +29,7 @@
 @use 'components/content-grid';
 @use 'components/button-as-link';
 @use 'components/menu-link';
+@use 'components/upgrade-card';
 
 // utilities, prefix with `.util-` and include last for the cascade
 @use 'utilities/utilities';
