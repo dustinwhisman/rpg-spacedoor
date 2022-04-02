@@ -11,6 +11,7 @@ import { renderDefenseUpgrades } from './components/upgrades/DefenseUpgrades';
 import { renderOffenseUpgrades } from './components/upgrades/OffenseUpgrades';
 import { renderActionUpgrades } from './components/upgrades/ActionUpgrades';
 import { renderBonusActionUpgrades } from './components/upgrades/BonusActionUpgrades';
+import { renderReactionUpgrades } from './components/upgrades/ReactionUpgrades';
 
 if (localStorage.getItem('is-logged-in')) {
   updateAuthState(true);
@@ -37,3 +38,4 @@ renderDefenseUpgrades();
 renderOffenseUpgrades();
 renderActionUpgrades();
 renderBonusActionUpgrades();
+renderReactionUpgrades();
