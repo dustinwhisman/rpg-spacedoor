@@ -13,4 +13,4 @@ an upgrade.
 <div id="stat-upgrades" class="cmp-stack"></div>
 <div id="skill-upgrades" class="cmp-stack"></div>
 <div id="health-upgrades" class="cmp-stack"></div>
-<div id="shield-upgrades" class="cmp-stack"></div>
+<div id="defense-upgrades" class="cmp-stack"></div>

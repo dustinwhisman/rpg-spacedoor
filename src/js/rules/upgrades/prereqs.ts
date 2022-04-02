@@ -155,3 +155,27 @@ export const isUpgradeAvailable = (
   const { upgrades } = character;
   return !upgrades.some((upgrade) => upgrade.name === upgradeName);
 };
+
+export const isVulnerable = (
+  character: Character,
+  effectOrTypeName: string,
+): boolean => {
+  const { vulnerabilities } = character;
+  return vulnerabilities.some((vulnerability) => vulnerability === effectOrTypeName);
+};
+
+export const isResistant = (
+  character: Character,
+  effectOrTypeName: string,
+): boolean => {
+  const { resistances } = character;
+  return resistances.some((resistance) => resistance === effectOrTypeName);
+};
+
+export const isImmune = (
+  character: Character,
+  effectOrTypeName: string,
+): boolean => {
+  const { immunities } = character;
+  return immunities.some((immunity) => immunity === effectOrTypeName);
+};

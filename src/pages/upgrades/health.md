@@ -4,6 +4,6 @@ description: See all of the health and AP upgrades that characters can purchase 
 layout: layout.njk
 ---
 
-# Health & AP Upgrades
+# Health & AP
 
 <div id="health-upgrades" class="cmp-stack"></div>

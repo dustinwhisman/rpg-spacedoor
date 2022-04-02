@@ -7,7 +7,7 @@ import { renderDamageTypes } from './components/DamageTypes';
 import { renderStatUpgrades } from './components/upgrades/StatUpgrades';
 import { renderSkillUpgrades } from './components/upgrades/SkillUpgrades';
 import { renderHealthUpgrades } from './components/upgrades/HealthUpgrades';
-import { renderShieldUpgrades } from './components/upgrades/ShieldUpgrades';
+import { renderDefenseUpgrades } from './components/upgrades/DefenseUpgrades';
 
 if (localStorage.getItem('is-logged-in')) {
   updateAuthState(true);
@@ -30,4 +30,4 @@ renderDamageTypes();
 renderStatUpgrades();
 renderSkillUpgrades();
 renderHealthUpgrades();
-renderShieldUpgrades();
+renderDefenseUpgrades();
