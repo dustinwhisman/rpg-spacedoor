@@ -28,6 +28,12 @@ export const healthUpgrades = (): Upgrade[] => {
       cost: 1,
       canPurchase: (character: Character) => isLessThanHalfOfStat(character, 'Cool', 'numHealingDie'),
     },
+    {
+      name: 'Bonus Healing',
+      description: "Add a +1 bonus to healing rolls. The maximum bonus is half of your Cool die's highest value.",
+      cost: 1,
+      canPurchase: (character: Character) => isLessThanHalfOfStat(character, 'Cool', 'healingBonus'),
+    },
   ];
 
   for (let i = 0; i < 5; i += 1) {
