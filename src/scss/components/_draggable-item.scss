@@ -1,0 +1,28 @@
+@use '../tools/functions';
+
+.cmp-draggable-item {
+  border: 0.125rem solid var(--ink);
+  padding: functions.fluid-size('centi');
+  font-size: functions.fluid-size('base');
+  position: relative;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: functions.fluid-size('deci');
+    width: min(100%, 30rem);
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: functions.fluid-size('deci');
+    width: functions.fluid-size('base');
+    height: functions.fluid-size('base');
+    transform: translateY(-50%);
+    background:
+      repeating-linear-gradient(to bottom, var(--ink), var(--ink) 15%, var(--paper) 15%, var(--paper) 42%);
+  }
+}

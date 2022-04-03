@@ -12,10 +12,20 @@ description: Build a new character from the ground up. Make a few choices that w
       <h1>
         Create Character
       </h1>
+
+      <p>
+        Rank your primary stats from best to worst (1 being best):
+      </p>
+      <div id="primary-stat-ranking"></div>
+
+      <p>
+        Rank your secondary stats from best to worst (1 being best):
+      </p>
+      <div id="secondary-stat-ranking"></div>
     </article>
   </div>
 {% endblock %}
 
 {% block scripts %}
-  <script></script>
+  <script src="/create-character.js" type="module"></script>
 {% endblock %}
