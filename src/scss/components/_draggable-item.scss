@@ -5,6 +5,7 @@
   padding: functions.fluid-size('centi');
   font-size: functions.fluid-size('base');
   position: relative;
+  cursor: grab;
 
   &__wrapper {
     display: flex;

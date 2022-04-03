@@ -20,17 +20,17 @@ export const SortableItem = (
   };
 
   return (
-    <div
-      className="cmp-draggable-item"
-      ref={setNodeRef}
-      style={style}
-      {...attributes}
-      {...listeners}
-      data-name={name}
-      data-sort={index}
-      data-value={value}
-    >
-      {`${index + 1}: ${name}`}
-    </div>
+    <>
+      <div
+        className="cmp-draggable-item"
+        ref={setNodeRef}
+        style={style}
+        {...attributes}
+        {...listeners}
+      >
+        {`${index + 1}: ${name}`}
+      </div>
+      <input type="hidden" name={name} value={value} />
+    </>
   );
 };
