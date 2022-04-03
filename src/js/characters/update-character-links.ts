@@ -1,13 +1,14 @@
 export const updateCharacterLinks = (characterNames: string[]) => {
-  const navList = document.querySelector('#character-nav-list');
-  if (navList) {
+  const navList = document.querySelectorAll('[data-character-nav-list]');
+
+  navList?.forEach((list) => {
     characterNames.forEach((name) => {
       const li = document.createElement('li');
       const a = document.createElement('a');
-      a.setAttribute('href', `/characters/${encodeURIComponent(name)}`);
+      a.setAttribute('href', `/character?name=${encodeURIComponent(name)}`);
       a.textContent = name;
       li.appendChild(a);
-      navList.appendChild(li);
+      list.appendChild(li);
     });
-  }
+  });
 };
