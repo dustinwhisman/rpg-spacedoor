@@ -23,7 +23,6 @@
     width: functions.fluid-size('base');
     height: functions.fluid-size('base');
     transform: translateY(-50%);
-    background:
-      repeating-linear-gradient(to bottom, var(--ink), var(--ink) 15%, var(--paper) 15%, var(--paper) 42%);
+    background: repeating-linear-gradient(to bottom, var(--ink), var(--ink) 15%, var(--paper) 15%, var(--paper) 42%);
   }
 }
