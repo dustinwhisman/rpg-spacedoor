@@ -21,6 +21,9 @@
 @use 'elements/button';
 @use 'elements/dt';
 @use 'elements/dd';
+@use 'elements/fieldset';
+@use 'elements/legend';
+@use 'elements/checkbox';
 
 // components for more specific styles, use BEM style for selectors
 @use 'components/container';

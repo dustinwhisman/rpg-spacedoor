@@ -1,0 +1,12 @@
+@use '../tools/functions';
+
+input[type='checkbox'] {
+  accent-color: var(--ink);
+  width: functions.fluid-size('base');
+  height: functions.fluid-size('base');
+
+  + label {
+    display: inline;
+    padding-inline-start: functions.fluid-size('centi');
+  }
+}
