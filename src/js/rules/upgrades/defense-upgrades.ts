@@ -25,6 +25,12 @@ export const shieldUpgrades = (): Upgrade[] => {
       cost: 1,
       canPurchase: (character: Character) => isLessThanHalfOfStat(character, 'Technobabble', 'shieldHitPointRegen'),
     },
+    {
+      name: 'Damage Threshold Increase',
+      description: 'Increase your Damage Threshold (DT) by 1.',
+      cost: 1,
+      canPurchase: () => true,
+    },
   ];
 
   return upgrades;
