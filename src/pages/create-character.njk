@@ -13,12 +13,23 @@ description: Build a new character from the ground up. Make a few choices that w
         Create Character
       </h1>
 
-      <form class="cmp-stack cmp-stack--hecto">
+      <form class="cmp-stack cmp-stack--hecto" data-create-character>
         <div>
           <label for="character-name">
             Character Name
           </label>
           <input id="character-name" type="text" name="character-name" required>
+        </div>
+
+        <div>
+          <label for="group-name">
+            Group Name (Optional)
+            <br>
+            <small>
+              You can use this to share your character sheet with other players or GMs
+            </small>
+          </label>
+          <input id="group-name" type="text" name="group-name">
         </div>
 
         <div class="cmp-stack cmp-stack--deci">
@@ -55,6 +66,12 @@ description: Build a new character from the ground up. Make a few choices that w
           </legend>
           <div id="immunities"></div>
         </fieldset>
+
+        <div>
+          <button type="submit">
+            Create Character
+          </button>
+        </div>
       </form>
     </article>
   </div>

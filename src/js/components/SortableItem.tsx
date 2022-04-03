@@ -30,7 +30,7 @@ export const SortableItem = (
       >
         {`${index + 1}: ${name}`}
       </div>
-      <input type="hidden" name={name} value={value} />
+      <input type="hidden" name={name} value={value} data-stat />
     </>
   );
 };
