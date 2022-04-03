@@ -13,15 +13,28 @@ description: Build a new character from the ground up. Make a few choices that w
         Create Character
       </h1>
 
-      <p>
-        Rank your primary stats from best to worst (1 being best):
-      </p>
-      <div id="primary-stat-ranking"></div>
+      <form class="cmp-stack cmp-stack--hecto">
+        <div>
+          <label for="character-name">
+            Character Name
+          </label>
+          <input id="character-name" type="text" name="character-name" required>
+        </div>
 
-      <p>
-        Rank your secondary stats from best to worst (1 being best):
-      </p>
-      <div id="secondary-stat-ranking"></div>
+        <div class="cmp-stack cmp-stack--deci">
+          <p>
+            Rank your primary stats from best to worst (1 being best):
+          </p>
+          <div id="primary-stat-ranking"></div>
+        </div>
+
+        <div class="cmp-stack cmp-stack--deci">
+          <p>
+            Rank your secondary stats from best to worst (1 being best):
+          </p>
+          <div id="secondary-stat-ranking"></div>
+        </div>
+      </form>
     </article>
   </div>
 {% endblock %}
