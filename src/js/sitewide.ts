@@ -1,6 +1,8 @@
 import { initializeDisclosureWidgets } from './disclosure';
 import { observeAuthState } from './auth/observe-auth-state';
 import { updateAuthState } from './auth/update-auth-state';
+import { getCharacters } from './characters/get-characters';
+import { updateCharacterLinks } from './characters/update-character-links';
 import { renderStats } from './components/StatsAndSkills';
 import { renderStatusEffects } from './components/StatusEffects';
 import { renderDamageTypes } from './components/DamageTypes';
@@ -17,8 +19,10 @@ if (localStorage.getItem('is-logged-in')) {
   updateAuthState(true);
 }
 
-document.addEventListener('user-logged-in', () => {
+document.addEventListener('user-logged-in', async () => {
   updateAuthState(true);
+  const characters = await getCharacters();
+  updateCharacterLinks(characters.map(({ name }: { name: string }) => name));
 });
 
 document.addEventListener('user-logged-out', () => {
