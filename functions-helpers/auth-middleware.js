@@ -1,6 +1,7 @@
-import { checkAuth } from './check-auth';
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { checkAuth } = require('./check-auth');
 
-export const authMiddleware = () => ({
+const authMiddleware = () => ({
   // eslint-disable-next-line consistent-return
   before: async (handler) => {
     try {
@@ -17,3 +18,7 @@ export const authMiddleware = () => ({
     }
   },
 });
+
+module.exports = {
+  authMiddleware,
+};

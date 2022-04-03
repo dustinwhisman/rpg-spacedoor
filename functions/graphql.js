@@ -1,7 +1,9 @@
-import dotenv from 'dotenv';
-import middy from 'middy';
-import fetch from 'node-fetch';
-import { authMiddleware } from '../functions-helpers/auth-middleware';
+/* eslint-disable @typescript-eslint/no-var-requires */
+const dotenv = require('dotenv');
+const middy = require('middy');
+const { authMiddleware } = require('../functions-helpers/auth-middleware');
+
+const fetch = (...args) => import('node-fetch').then(({ default: nodeFetch }) => nodeFetch(...args));
 
 dotenv.config();
 
@@ -30,4 +32,4 @@ const graphqlHandler = async (event, context, callback) => {
 
 const handler = middy(graphqlHandler).use(authMiddleware());
 
-export { handler };
+exports.handler = handler;
