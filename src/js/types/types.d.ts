@@ -23,8 +23,14 @@ export interface Upgrade {
   onExchange?: (any) => void,
 }
 
+export interface InventoryItem {
+  name: string,
+  description: string,
+}
+
 export interface Character {
   name: string,
+  group: string,
   stats: Stat[],
   damageDie: string,
   numDamageDie: number,
@@ -33,6 +39,7 @@ export interface Character {
   numHealingDie: number,
   healingBonus: number,
   damageThreshold: number,
+  damageThresholdBonus: number,
   actionPointMax: number,
   actionPoints: number,
   experiencePoints: number,
@@ -48,4 +55,5 @@ export interface Character {
   resistances: string[],
   immunities: string[],
   upgrades: Upgrade[],
+  inventory: InventoryItem[],
 }

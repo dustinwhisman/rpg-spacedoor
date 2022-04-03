@@ -2,6 +2,7 @@ type Character {
   uid: ID
   name: String
   game: String
+  group: String
   stats: [Stat] @relation
   damageDie: String
   numDamageDie: Int
@@ -10,6 +11,7 @@ type Character {
   numHealingDie: Int
   healingBonus: Int
   damageThreshold: Int
+  damageThresholdBonus: Int
   actionPointMax: Int
   actionPoints: Int
   experiencePoints: Int
@@ -25,6 +27,7 @@ type Character {
   resistances: [String]
   immunities: [String]
   upgrades: [Upgrade] @relation
+  inventory: [InventoryItem] @relation
 }
 
 type Stat {
@@ -44,6 +47,13 @@ type Skill {
 }
 
 type Upgrade {
+  character: Character
+  name: String
+  description: String
+  cost: Int
+}
+
+type InventoryItem {
   character: Character
   name: String
   description: String
