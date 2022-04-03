@@ -48,6 +48,9 @@
     "ts-jest": "^27.1.4"
   },
   "dependencies": {
+    "@dnd-kit/core": "^5.0.3",
+    "@dnd-kit/sortable": "^6.0.1",
+    "@dnd-kit/utilities": "^3.1.0",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
     "dotenv": "^16.0.0",
