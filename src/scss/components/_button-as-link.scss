@@ -4,8 +4,9 @@
   background-color: transparent;
   border: none;
   box-shadow: none;
-  color: var(--link-color);
+  color: var(--ink);
   text-decoration: underline;
+  font-size: initial;
   cursor: pointer;
 
   &:hover {

@@ -5,6 +5,13 @@
   --ink: #{functions.theme-color('gray-5')};
   --link-color: #{functions.theme-color('dark-blue')};
   --shadow-color: #{functions.theme-color('gray-50')};
+  --heading-color: #{functions.theme-color('dark-purple')};
+  --rank-1-color: #{functions.theme-color('gray-5')};
+  --rank-2-color: #{functions.theme-color('dark-green')};
+  --rank-3-color: #{functions.theme-color('dark-blue')};
+  --rank-4-color: #{functions.theme-color('dark-purple')};
+  --rank-5-color: #{functions.theme-color('dark-pink')};
+  --rank-6-color: #{functions.theme-color('red')};
 
   font-family: functions.font-family('serif');
   scroll-snap-type: y mandatory;
@@ -15,5 +22,12 @@
     --paper: #{functions.theme-color('gray-5')};
     --ink: #{functions.theme-color('gray-95')};
     --link-color: #{functions.theme-color('light-blue')};
+    --heading-color: #{functions.theme-color('yellow')};
+    --rank-1-color: #{functions.theme-color('gray-95')};
+    --rank-2-color: #{functions.theme-color('light-green')};
+    --rank-3-color: #{functions.theme-color('light-blue')};
+    --rank-4-color: #{functions.theme-color('light-purple')};
+    --rank-5-color: #{functions.theme-color('light-pink')};
+    --rank-6-color: #{functions.theme-color('orange')};
   }
 }

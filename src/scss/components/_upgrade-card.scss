@@ -7,6 +7,42 @@
   padding: functions.fluid-size('deci');
   background-color: var(--paper);
   border: 0.125rem solid var(--ink);
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: functions.fluid-size('deci');
+    left: functions.fluid-size('deci');
+    width: functions.fluid-size('deci');
+    height: functions.fluid-size('deci');
+    border-radius: 50%;
+  }
+
+  &--rank-1::before {
+    background-color: var(--rank-1-color);
+  }
+
+  &--rank-2::before {
+    background-color: var(--rank-2-color);
+  }
+
+  &--rank-3::before {
+    background-color: var(--rank-3-color);
+  }
+
+  &--rank-4::before {
+    background-color: var(--rank-4-color);
+  }
+
+  &--rank-5::before {
+    background-color: var(--rank-5-color);
+  }
+
+  &--rank-6::before {
+    background-color: var(--rank-6-color);
+  }
 
   &__grid {
     display: grid;
@@ -27,11 +63,8 @@
 
   &__cost {
     font-size: functions.fluid-size('deci');
+    font-weight: 700;
     margin-block-start: auto;
     text-align: right;
-  }
-
-  &__cost-label {
-    text-transform: uppercase;
   }
 }

@@ -3,7 +3,7 @@ import React from 'react';
 export const UpgradeCard = (
   { name, description, cost }: { name: string, description: string, cost: number },
 ) => (
-  <article className="cmp-upgrade-card">
+  <article className={`cmp-upgrade-card cmp-upgrade-card--rank-${cost > 5 ? 6 : cost}`}>
     <p className="cmp-upgrade-card__name">
       {name}
     </p>
@@ -11,12 +11,7 @@ export const UpgradeCard = (
       {description}
     </p>
     <p className="cmp-upgrade-card__cost">
-      <span className="cmp-upgrade-card__cost-label">
-        Cost:
-      </span>
-      <strong>
-        {` ${cost} XP`}
-      </strong>
+      {`${cost} XP`}
     </p>
   </article>
 );
