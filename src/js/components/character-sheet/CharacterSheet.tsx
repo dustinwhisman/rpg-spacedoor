@@ -3,6 +3,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Character } from '../../types/types';
 import { CharacterName } from './CharacterName';
+import { CharacterStatus } from './CharacterStatus';
 import { CharacterStats } from './CharacterStats';
 import { SecondaryStats } from './SecondaryStats';
 import { CharacterSkills } from './CharacterSkills';
@@ -10,6 +11,7 @@ import { CharacterSkills } from './CharacterSkills';
 const CharacterSheet = ({ character }: { character: Character }) => (
   <>
     <CharacterName name={character.name} />
+    <CharacterStatus {...character} />
     <CharacterStats stats={character.stats} />
     <SecondaryStats {...character} />
     <CharacterSkills stats={character.stats} />
