@@ -5,12 +5,14 @@ import { Character } from '../../types/types';
 import { CharacterName } from './CharacterName';
 import { CharacterStats } from './CharacterStats';
 import { SecondaryStats } from './SecondaryStats';
+import { CharacterSkills } from './CharacterSkills';
 
 const CharacterSheet = ({ character }: { character: Character }) => (
   <>
     <CharacterName name={character.name} />
     <CharacterStats stats={character.stats} />
     <SecondaryStats {...character} />
+    <CharacterSkills stats={character.stats} />
   </>
 );
 
