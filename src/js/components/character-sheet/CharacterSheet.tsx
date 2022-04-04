@@ -7,6 +7,7 @@ import { CharacterStatus } from './CharacterStatus';
 import { CharacterStats } from './CharacterStats';
 import { SecondaryStats } from './SecondaryStats';
 import { CharacterSkills } from './CharacterSkills';
+import { CharacterTraits } from './CharacterTraits';
 
 const CharacterSheet = ({ character }: { character: Character }) => (
   <>
@@ -15,6 +16,7 @@ const CharacterSheet = ({ character }: { character: Character }) => (
     <CharacterStats stats={character.stats} />
     <SecondaryStats {...character} />
     <CharacterSkills stats={character.stats} />
+    <CharacterTraits {...character} />
   </>
 );
 
