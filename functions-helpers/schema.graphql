@@ -61,4 +61,5 @@ type InventoryItem {
 
 type Query {
   charactersByGame(uid: ID!, game: String): [Character]
+  characterByName(uid: ID!, game: String, name: String): Character
 }
