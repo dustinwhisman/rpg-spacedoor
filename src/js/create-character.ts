@@ -1,6 +1,7 @@
 import { auth } from './auth/auth';
 import { fetcher } from './utilities/fetcher';
 import { stats } from './rules/stats';
+import { computedStat } from './characters/computed-stat';
 import { renderEffectTypeChecklist } from './components/CheckboxList';
 import { renderPrimaryStatRanking, renderSecondaryStatRanking } from './components/SortableList';
 
@@ -9,12 +10,6 @@ renderSecondaryStatRanking();
 renderEffectTypeChecklist('vulnerabilities');
 renderEffectTypeChecklist('resistances');
 renderEffectTypeChecklist('immunities');
-
-const computedStat = (die: string, modifier: number) => {
-  const highestValue = Number.parseInt(die.substring(1), 10);
-
-  return (highestValue / 2) + modifier;
-};
 
 const generateQuery = (
   uid: string,

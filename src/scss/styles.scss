@@ -24,6 +24,9 @@
 @use 'elements/fieldset';
 @use 'elements/legend';
 @use 'elements/checkbox';
+@use 'elements/table';
+@use 'elements/th';
+@use 'elements/td';
 
 // components for more specific styles, use BEM style for selectors
 @use 'components/container';

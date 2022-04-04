@@ -1,0 +1,8 @@
+@use '../tools/functions';
+
+table {
+  width: min-content;
+  max-width: 100%;
+  overflow-x: auto;
+  font-size: functions.fluid-size('base');
+}
