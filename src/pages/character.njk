@@ -8,14 +8,10 @@ description: Find your character's stats, skills, upgrades, and inventory from h
 {% block content %}
   <div class="cmp-content-grid cmp-container">
     {% include "navigation.njk" %}
-    <article class="cmp-stack">
-      <h1>
-        Character Sheet
-      </h1>
-    </article>
+    <article id="character-sheet" class="cmp-stack"></article>
   </div>
 {% endblock %}
 
 {% block scripts %}
-  <script></script>
+  <script src="/character-sheet.js" type="module"></script>
 {% endblock %}

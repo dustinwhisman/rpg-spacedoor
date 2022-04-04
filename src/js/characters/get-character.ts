@@ -77,61 +77,59 @@ export const getCharacter = async (name: string) => {
 
   const query = `
     query {
-      charactersByName(uid: "${uid}", game: "Spacedoor!", name: "${name}") {
-        data {
-          _id
-          name
-          game
-          group
-          stats {
-            data {
-              name
-              die
-              bonus
-              dcBonus
-              skills {
-                data {
-                  name
-                  die
-                  bonus
-                }
+      characterByName(uid: "${uid}", game: "Spacedoor!", name: "${name}") {
+        _id
+        name
+        game
+        group
+        stats {
+          data {
+            name
+            die
+            bonus
+            dcBonus
+            skills {
+              data {
+                name
+                die
+                bonus
               }
             }
           }
-          damageDie
-          numDamageDie
-          damageBonus
-          healingDie
-          numHealingDie
-          healingBonus
-          damageThreshold
-          damageThresholdBonus
-          actionPointMax
-          actionPoints
-          experiencePoints
-          baseHitPointMax
-          hitPointMultiplier
-          hitPoints
-          hitPointRegen
-          baseShieldHitPointMax
-          shieldHitPointMultiplier
-          shieldHitPoints
-          shieldHitPointRegen
-          vulnerabilities
-          resistances
-          immunities
-          upgrades {
-            data {
-              name
-              description
-              cost
-            }
+        }
+        damageDie
+        numDamageDie
+        damageBonus
+        healingDie
+        numHealingDie
+        healingBonus
+        damageThreshold
+        damageThresholdBonus
+        actionPointMax
+        actionPoints
+        experiencePoints
+        baseHitPointMax
+        hitPointMultiplier
+        hitPoints
+        hitPointRegen
+        baseShieldHitPointMax
+        shieldHitPointMultiplier
+        shieldHitPoints
+        shieldHitPointRegen
+        vulnerabilities
+        resistances
+        immunities
+        upgrades {
+          data {
+            name
+            description
+            cost
           }
-          inventory {
-            data {
-              name
-              description
-            }
+        }
+        inventory {
+          data {
+            name
+            description
           }
         }
       }
