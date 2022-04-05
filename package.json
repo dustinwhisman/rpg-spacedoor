@@ -34,7 +34,7 @@
     "@stryker-mutator/core": "^5.6.1",
     "@stryker-mutator/jest-runner": "^5.6.1",
     "@types/jest": "^27.4.1",
-    "esbuild": "^0.14.30",
+    "esbuild": "^0.14.31",
     "eslint": "^8.12.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^16.2.0",
