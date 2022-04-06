@@ -23,7 +23,10 @@ export const shieldUpgrades = (): Upgrade[] => {
       name: 'Improved Shield Regen',
       description: "Increase the amount of SHP your shield regenerates by 1. The maximum value is half of your Technobabble die's highest value.",
       cost: 1,
-      canPurchase: (character: Character) => isLessThanHalfOfStat(character, 'Technobabble', 'shieldHitPointRegen'),
+      canPurchase: (character: Character) => (
+        !isUpgradeAvailable(character, 'Energy Shield')
+        && isLessThanHalfOfStat(character, 'Technobabble', 'shieldHitPointRegen')
+      ),
     },
     {
       name: 'Damage Threshold Increase',
