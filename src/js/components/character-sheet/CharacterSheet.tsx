@@ -194,6 +194,50 @@ const CharacterSheet = ({ character }: { character: Character }) => (
               <UpgradeCard key={name} name={name} description={description} cost={cost} />
             ))}
         </div>
+
+        <h3>
+          Standard Bonus Actions
+        </h3>
+        <div className="cmp-upgrade-card__grid">
+          {bonusActions()
+            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
+            .map(({ name, description, cost }) => (
+              <UpgradeCard key={name} name={name} description={description} cost={cost} />
+            ))}
+        </div>
+
+        <h3>
+          Healing Bonus Actions
+        </h3>
+        <div className="cmp-upgrade-card__grid">
+          {bonusHealingActions()
+            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
+            .map(({ name, description, cost }) => (
+              <UpgradeCard key={name} name={name} description={description} cost={cost} />
+            ))}
+        </div>
+
+        <h3>
+          Status Effect Bonus Actions
+        </h3>
+        <div className="cmp-upgrade-card__grid">
+          {bonusStatusEffectActions()
+            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
+            .map(({ name, description, cost }) => (
+              <UpgradeCard key={name} name={name} description={description} cost={cost} />
+            ))}
+        </div>
+
+        <h3>
+          Reactions
+        </h3>
+        <div className="cmp-upgrade-card__grid">
+          {reactionUpgrades()
+            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
+            .map(({ name, description, cost }) => (
+              <UpgradeCard key={name} name={name} description={description} cost={cost} />
+            ))}
+        </div>
       </div>
     </details>
   </>

@@ -54,7 +54,6 @@ export const canAddProficiencyDie = (
   }
 
   const { bonusDie } = skills.find((skill) => skill.name === skillName) ?? {};
-  console.log({ statDie, bonusDie });
 
   if (!bonusDie && ['d8', 'd10', 'd12', 'd20'].includes(statDie)) {
     return bonusDieValue === 'd4';
