@@ -8,6 +8,7 @@ import {
   healthUpgrades,
   damageUpgrades,
   damageTypeUpgrades,
+  statusEffectUpgrades,
   shieldUpgrades,
   removeVulnerabilityUpgrades,
   resistanceUpgrades,
@@ -89,6 +90,39 @@ const CharacterSheet = ({ character }: { character: Character }) => (
         </h3>
         <div className="cmp-upgrade-card__grid">
           {healthUpgrades()
+            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
+            .map(({ name, description, cost }) => (
+              <UpgradeCard key={name} name={name} description={description} cost={cost} />
+            ))}
+        </div>
+
+        <h3>
+          Damage Upgrades
+        </h3>
+        <div className="cmp-upgrade-card__grid">
+          {damageUpgrades()
+            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
+            .map(({ name, description, cost }) => (
+              <UpgradeCard key={name} name={name} description={description} cost={cost} />
+            ))}
+        </div>
+
+        <h3>
+          Damage Type Upgrades
+        </h3>
+        <div className="cmp-upgrade-card__grid">
+          {damageTypeUpgrades()
+            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
+            .map(({ name, description, cost }) => (
+              <UpgradeCard key={name} name={name} description={description} cost={cost} />
+            ))}
+        </div>
+
+        <h3>
+          Status Effect Upgrades
+        </h3>
+        <div className="cmp-upgrade-card__grid">
+          {statusEffectUpgrades()
             .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
             .map(({ name, description, cost }) => (
               <UpgradeCard key={name} name={name} description={description} cost={cost} />
