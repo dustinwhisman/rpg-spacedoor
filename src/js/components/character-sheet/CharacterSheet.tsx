@@ -53,7 +53,7 @@ const CharacterSheet = ({ character }: { character: Character }) => (
           )))
           .map((upgradesForStat) => (
             <details key={upgradesForStat[0].stat}>
-              <summary className="summary--deca">
+              <summary className="summary-deca">
                 {`${upgradesForStat[0].stat} Upgrades`}
               </summary>
               <div className="cmp-upgrade-card__grid">
@@ -78,7 +78,7 @@ const CharacterSheet = ({ character }: { character: Character }) => (
         )))
         .map((upgradesForSkill) => (
           <details key={upgradesForSkill[0].skill}>
-            <summary className="summary--deca">
+            <summary className="summary-deca">
               {`${upgradesForSkill[0].skill} Upgrades`}
             </summary>
             <div className="cmp-upgrade-card__grid">
