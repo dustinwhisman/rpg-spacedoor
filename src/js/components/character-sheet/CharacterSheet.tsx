@@ -35,7 +35,7 @@ const CharacterSheet = ({ character }: { character: Character }) => (
     <SecondaryStats {...character} />
     <CharacterSkills stats={character.stats} />
     <CharacterTraits {...character} />
-    <details>
+    <details open>
       <summary>
         Available Upgrades
       </summary>
@@ -83,6 +83,17 @@ const CharacterSheet = ({ character }: { character: Character }) => (
               </div>
             </React.Fragment>
           ))}
+
+        <h3>
+          Health &amp; AP Upgrades
+        </h3>
+        <div className="cmp-upgrade-card__grid">
+          {healthUpgrades()
+            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
+            .map(({ name, description, cost }) => (
+              <UpgradeCard key={name} name={name} description={description} cost={cost} />
+            ))}
+        </div>
       </div>
     </details>
   </>
