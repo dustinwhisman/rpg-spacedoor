@@ -172,6 +172,28 @@ const CharacterSheet = ({ character }: { character: Character }) => (
               <UpgradeCard key={name} name={name} description={description} cost={cost} />
             ))}
         </div>
+
+        <h3>
+          Healing Actions
+        </h3>
+        <div className="cmp-upgrade-card__grid">
+          {healingActions()
+            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
+            .map(({ name, description, cost }) => (
+              <UpgradeCard key={name} name={name} description={description} cost={cost} />
+            ))}
+        </div>
+
+        <h3>
+          Status Effect Actions
+        </h3>
+        <div className="cmp-upgrade-card__grid">
+          {statusEffectActions()
+            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
+            .map(({ name, description, cost }) => (
+              <UpgradeCard key={name} name={name} description={description} cost={cost} />
+            ))}
+        </div>
       </div>
     </details>
   </>
