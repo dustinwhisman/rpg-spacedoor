@@ -77,7 +77,7 @@ const CharacterSheet = ({ character }: { character: Character }) => (
           canPurchase?.(character) ?? false
         )))
         .map((upgradesForSkill) => (
-          <details key={upgradesForSkill[0].stat}>
+          <details key={upgradesForSkill[0].skill}>
             <summary className="summary--deca">
               {`${upgradesForSkill[0].skill} Upgrades`}
             </summary>
