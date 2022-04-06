@@ -26,6 +26,7 @@ import { CharacterStats } from './CharacterStats';
 import { SecondaryStats } from './SecondaryStats';
 import { CharacterSkills } from './CharacterSkills';
 import { CharacterTraits } from './CharacterTraits';
+import { UpgradeCategory } from './UpgradeCategory';
 import { UpgradeCard } from './UpgradeCard';
 
 const CharacterSheet = ({ character }: { character: Character }) => (
@@ -85,159 +86,76 @@ const CharacterSheet = ({ character }: { character: Character }) => (
             </React.Fragment>
           ))}
 
-        <h3>
-          Health &amp; AP Upgrades
-        </h3>
-        <div className="cmp-upgrade-card__grid">
-          {healthUpgrades()
-            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
-            .map(({ name, description, cost }) => (
-              <UpgradeCard key={name} name={name} description={description} cost={cost} />
-            ))}
-        </div>
-
-        <h3>
-          Damage Upgrades
-        </h3>
-        <div className="cmp-upgrade-card__grid">
-          {damageUpgrades()
-            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
-            .map(({ name, description, cost }) => (
-              <UpgradeCard key={name} name={name} description={description} cost={cost} />
-            ))}
-        </div>
-
-        <h3>
-          Damage Type Upgrades
-        </h3>
-        <div className="cmp-upgrade-card__grid">
-          {damageTypeUpgrades()
-            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
-            .map(({ name, description, cost }) => (
-              <UpgradeCard key={name} name={name} description={description} cost={cost} />
-            ))}
-        </div>
-
-        <h3>
-          Status Effect Upgrades
-        </h3>
-        <div className="cmp-upgrade-card__grid">
-          {statusEffectUpgrades()
-            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
-            .map(({ name, description, cost }) => (
-              <UpgradeCard key={name} name={name} description={description} cost={cost} />
-            ))}
-        </div>
-
-        <h3>
-          Shield Upgrades
-        </h3>
-        <div className="cmp-upgrade-card__grid">
-          {shieldUpgrades()
-            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
-            .map(({ name, description, cost }) => (
-              <UpgradeCard key={name} name={name} description={description} cost={cost} />
-            ))}
-        </div>
-
-        <h3>
-          Remove Vulnerability Upgrades
-        </h3>
-        <div className="cmp-upgrade-card__grid">
-          {removeVulnerabilityUpgrades()
-            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
-            .map(({ name, description, cost }) => (
-              <UpgradeCard key={name} name={name} description={description} cost={cost} />
-            ))}
-        </div>
-
-        <h3>
-          Resistance Upgrades
-        </h3>
-        <div className="cmp-upgrade-card__grid">
-          {resistanceUpgrades()
-            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
-            .map(({ name, description, cost }) => (
-              <UpgradeCard key={name} name={name} description={description} cost={cost} />
-            ))}
-        </div>
-
-        <h3>
-          Immunity Upgrades
-        </h3>
-        <div className="cmp-upgrade-card__grid">
-          {immunityUpgrades()
-            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
-            .map(({ name, description, cost }) => (
-              <UpgradeCard key={name} name={name} description={description} cost={cost} />
-            ))}
-        </div>
-
-        <h3>
-          Healing Actions
-        </h3>
-        <div className="cmp-upgrade-card__grid">
-          {healingActions()
-            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
-            .map(({ name, description, cost }) => (
-              <UpgradeCard key={name} name={name} description={description} cost={cost} />
-            ))}
-        </div>
-
-        <h3>
-          Status Effect Actions
-        </h3>
-        <div className="cmp-upgrade-card__grid">
-          {statusEffectActions()
-            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
-            .map(({ name, description, cost }) => (
-              <UpgradeCard key={name} name={name} description={description} cost={cost} />
-            ))}
-        </div>
-
-        <h3>
-          Standard Bonus Actions
-        </h3>
-        <div className="cmp-upgrade-card__grid">
-          {bonusActions()
-            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
-            .map(({ name, description, cost }) => (
-              <UpgradeCard key={name} name={name} description={description} cost={cost} />
-            ))}
-        </div>
-
-        <h3>
-          Healing Bonus Actions
-        </h3>
-        <div className="cmp-upgrade-card__grid">
-          {bonusHealingActions()
-            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
-            .map(({ name, description, cost }) => (
-              <UpgradeCard key={name} name={name} description={description} cost={cost} />
-            ))}
-        </div>
-
-        <h3>
-          Status Effect Bonus Actions
-        </h3>
-        <div className="cmp-upgrade-card__grid">
-          {bonusStatusEffectActions()
-            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
-            .map(({ name, description, cost }) => (
-              <UpgradeCard key={name} name={name} description={description} cost={cost} />
-            ))}
-        </div>
-
-        <h3>
-          Reactions
-        </h3>
-        <div className="cmp-upgrade-card__grid">
-          {reactionUpgrades()
-            .filter(({ canPurchase }) => canPurchase?.(character) ?? false)
-            .map(({ name, description, cost }) => (
-              <UpgradeCard key={name} name={name} description={description} cost={cost} />
-            ))}
-        </div>
+        <UpgradeCategory
+          title="Health &amp; AP Upgrades"
+          upgrades={healthUpgrades()}
+          character={character}
+        />
+        <UpgradeCategory
+          title="Damage Upgrades"
+          upgrades={damageUpgrades()}
+          character={character}
+        />
+        <UpgradeCategory
+          title="Damage Type Upgrades"
+          upgrades={damageTypeUpgrades()}
+          character={character}
+        />
+        <UpgradeCategory
+          title="Status Effect Upgrades"
+          upgrades={statusEffectUpgrades()}
+          character={character}
+        />
+        <UpgradeCategory
+          title="Shield Upgrades"
+          upgrades={shieldUpgrades()}
+          character={character}
+        />
+        <UpgradeCategory
+          title="Remove Vulnerability Upgrades"
+          upgrades={removeVulnerabilityUpgrades()}
+          character={character}
+        />
+        <UpgradeCategory
+          title="Resistance Upgrades"
+          upgrades={resistanceUpgrades()}
+          character={character}
+        />
+        <UpgradeCategory
+          title="Immunity Upgrades"
+          upgrades={immunityUpgrades()}
+          character={character}
+        />
+        <UpgradeCategory
+          title="Healing Actions"
+          upgrades={healingActions()}
+          character={character}
+        />
+        <UpgradeCategory
+          title="Status Effect Actions"
+          upgrades={statusEffectActions()}
+          character={character}
+        />
+        <UpgradeCategory
+          title="Standard Bonus Actions"
+          upgrades={bonusActions()}
+          character={character}
+        />
+        <UpgradeCategory
+          title="Healing Bonus Actions"
+          upgrades={bonusHealingActions()}
+          character={character}
+        />
+        <UpgradeCategory
+          title="Status Effect Bonus Actions"
+          upgrades={bonusStatusEffectActions()}
+          character={character}
+        />
+        <UpgradeCategory
+          title="Reactions"
+          upgrades={reactionUpgrades()}
+          character={character}
+        />
       </div>
     </details>
   </>
