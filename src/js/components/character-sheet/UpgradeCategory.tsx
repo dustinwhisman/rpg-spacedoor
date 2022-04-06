@@ -13,15 +13,15 @@ export const UpgradeCategory = (
   }
 
   return (
-    <>
-      <h3>
+    <details>
+      <summary>
         {title}
-      </h3>
+      </summary>
       <div className="cmp-upgrade-card__grid">
         {availableUpgrades.map(({ name, description, cost }) => (
           <UpgradeCard key={name} name={name} description={description} cost={cost} />
         ))}
       </div>
-    </>
+    </details>
   );
 };
