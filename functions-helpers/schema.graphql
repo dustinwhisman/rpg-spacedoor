@@ -42,6 +42,7 @@ type Stat {
 type Skill {
   name: String
   die: String
+  bonusDie: String
   bonus: Int
   stat: Stat
 }

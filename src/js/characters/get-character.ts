@@ -17,6 +17,7 @@ type CharacterInput = {
         data: Array<{
           name: string,
           die: string,
+          bonusDie: string,
           bonus: number,
         }>
       }
@@ -92,6 +93,7 @@ export const getCharacter = async (name: string) => {
               data {
                 name
                 die
+                bonusDie
                 bonus
               }
             }

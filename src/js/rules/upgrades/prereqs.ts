@@ -53,21 +53,22 @@ export const canAddProficiencyDie = (
     return false;
   }
 
-  const { die: skillDie } = skills.find((skill) => skill.name === skillName) ?? {};
+  const { bonusDie } = skills.find((skill) => skill.name === skillName) ?? {};
+  console.log({ statDie, bonusDie });
 
-  if (!skillDie && ['d8', 'd10', 'd12', 'd20'].includes(statDie)) {
+  if (!bonusDie && ['d8', 'd10', 'd12', 'd20'].includes(statDie)) {
     return bonusDieValue === 'd4';
   }
 
-  if (skillDie === 'd4' && ['d10', 'd12', 'd20'].includes(statDie)) {
+  if (bonusDie === 'd4' && ['d10', 'd12', 'd20'].includes(statDie)) {
     return bonusDieValue === 'd6';
   }
 
-  if (skillDie === 'd6' && ['d12', 'd20'].includes(statDie)) {
+  if (bonusDie === 'd6' && ['d12', 'd20'].includes(statDie)) {
     return bonusDieValue === 'd8';
   }
 
-  if (skillDie === 'd8' && statDie === 'd20') {
+  if (bonusDie === 'd8' && statDie === 'd20') {
     return bonusDieValue === 'd10';
   }
 

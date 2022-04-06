@@ -21,7 +21,7 @@ const addProficiencyDie = (statName: string, skillName: string): Upgrade[] => {
       description: `Increase your ${skillName} bonus die from a ${fromDice[i]} to a ${toDice[i]}. Your ${statName} die must be ${i < 2 ? 'at least' : ''} a ${toDice[i + 2]}.`,
       cost: 1,
       canPurchase: (character: Character) => (
-        canAddProficiencyDie(character, statName, skillName, toDice[i + 2])
+        canAddProficiencyDie(character, statName, skillName, toDice[i])
       ),
     });
   }

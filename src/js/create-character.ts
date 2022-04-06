@@ -38,6 +38,7 @@ const generateQuery = (
                 {
                   name: "${skillName}"
                   die: "${statMap[statName]}"
+                  bonusDie: ""
                   bonus: 0
                 }
               `).join('')}]

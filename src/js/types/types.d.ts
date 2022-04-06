@@ -1,6 +1,7 @@
 export interface Skill {
   name: string,
   die: string,
+  bonusDie: string,
   bonus: number,
 }
 

@@ -1,0 +1,10 @@
+@use '../tools/functions';
+
+summary {
+  font-size: functions.fluid-size('kilo');
+  font-family: functions.font-family('sans');
+  font-weight: 700;
+  line-height: calc(1em + 0.5rem);
+  margin-block-start: 0.65em;
+  cursor: pointer;
+}
