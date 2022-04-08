@@ -6,7 +6,9 @@ description: Log in to an existing account or sign up. Either way, all that is r
 {% extends "layout.njk" %}
 
 {% block content %}
-  <div class="cmp-container cmp-stack">
+<div class="cmp-content-grid cmp-container">
+  {% include "navigation.njk" %}
+  <article class="cmp-stack">
     <h1>
       Log In or Sign Up
     </h1>
@@ -36,7 +38,8 @@ description: Log in to an existing account or sign up. Either way, all that is r
       Huzzah! Check your email for a link to finish logging in. (You can close
       this tab now. The link will open a new one.)
     </p>
-  </div>
+  </article>
+</div>
 {% endblock %}
 
 {% block scripts %}

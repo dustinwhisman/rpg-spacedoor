@@ -6,7 +6,9 @@ description: Update your email address from here.
 {% extends "layout.njk" %}
 
 {% block content %}
-  <div class="cmp-container cmp-stack">
+<div class="cmp-content-grid cmp-container">
+  {% include "navigation.njk" %}
+  <article class="cmp-stack">
     <h1>
       Update Email Address
     </h1>
@@ -40,7 +42,8 @@ description: Update your email address from here.
       Something went wrong when trying to confirm your login. You can go back to
       the <a href="/account">Account page</a> to try again.
     </p>
-  </div>
+  </article>
+</div>
 {% endblock %}
 
 {% block scripts %}
