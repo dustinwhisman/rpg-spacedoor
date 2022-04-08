@@ -30,6 +30,7 @@ export interface InventoryItem {
 }
 
 export interface Character {
+  _id: string,
   name: string,
   group: string,
   stats: Stat[],

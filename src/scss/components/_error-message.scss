@@ -1,0 +1,6 @@
+@use '../tools/functions';
+
+.cmp-error-message {
+  font-size: functions.fluid-size('deci');
+  color: var(--danger-color);
+}

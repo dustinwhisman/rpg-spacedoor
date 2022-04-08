@@ -12,6 +12,8 @@
   --rank-4-color: #{functions.theme-color('dark-purple')};
   --rank-5-color: #{functions.theme-color('dark-pink')};
   --rank-6-color: #{functions.theme-color('red')};
+  --danger-color: #{functions.theme-color('red')};
+  --danger-shadow-color: #{functions.theme-color('red-shadow')};
 
   font-family: functions.font-family('serif');
   scroll-snap-type: y mandatory;
@@ -29,5 +31,6 @@
     --rank-4-color: #{functions.theme-color('light-purple')};
     --rank-5-color: #{functions.theme-color('light-pink')};
     --rank-6-color: #{functions.theme-color('orange')};
+    --danger-color: #{functions.theme-color('light-red')};
   }
 }

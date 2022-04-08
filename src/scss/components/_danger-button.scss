@@ -1,0 +1,7 @@
+@use '../tools/functions';
+
+.cmp-danger-button {
+  color: var(--danger-color);
+  border-color: var(--danger-color);
+  box-shadow: 0.2em 0.2em 0 0 var(--danger-shadow-color);
+}

@@ -28,6 +28,7 @@ import { CharacterSkills } from './CharacterSkills';
 import { CharacterTraits } from './CharacterTraits';
 import { UpgradeCategory } from './UpgradeCategory';
 import { UpgradeCard } from './UpgradeCard';
+import { DeleteCharacter } from './DeleteCharacter';
 
 const CharacterSheet = ({ character }: { character: Character }) => (
   <>
@@ -162,6 +163,8 @@ const CharacterSheet = ({ character }: { character: Character }) => (
       upgrades={reactionUpgrades()}
       character={character}
     />
+
+    <DeleteCharacter character={character} />
   </>
 );
 
