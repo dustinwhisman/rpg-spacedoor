@@ -32,11 +32,13 @@ export const CharacterSkills = ({ stats }: { stats: Stat[] }) => {
       <tbody>
         {skills
           .sort(sortAlphabetically)
-          .map(({ name, die, bonus }) => (
+          .map(({
+            name, die, bonusDie, bonus,
+          }) => (
             <tr key={name}>
               <th scope="row">{name}</th>
               <td>
-                {`${die}${bonus > 0 ? ` + ${bonus}` : ''}`}
+                {`${die}${bonusDie ? ` + ${bonusDie}` : ''}${bonus > 0 ? ` + ${bonus}` : ''}`}
               </td>
             </tr>
           ))}
