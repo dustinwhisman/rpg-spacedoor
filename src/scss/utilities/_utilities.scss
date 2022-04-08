@@ -1,3 +1,5 @@
+@use '../tools/functions';
+
 .util-visually-hidden {
   position: fixed;
   right: 100%;
@@ -13,4 +15,9 @@
     clip: auto;
     clip-path: none;
   }
+}
+
+.util-display-flex {
+  display: flex;
+  gap: functions.fluid-size('base');
 }

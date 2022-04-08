@@ -1,16 +1,23 @@
 import { auth } from '../auth/auth';
+import { Character } from '../types/types';
 import { fetcher } from '../utilities/fetcher';
 import { normalizeCharacterData } from './normalize-character-data';
 
-export const getCharacter = async (name: string) => {
+export const updateBasicValue = async (
+  id: string,
+  statName: string,
+  newValue: string | number,
+): Promise<Character | null> => {
   const { uid } = auth.currentUser ?? {};
   if (!uid) {
-    return [];
+    return null;
   }
 
   const query = `
-    query {
-      characterByName(uid: "${uid}", game: "Spacedoor!", name: "${name}") {
+    mutation {
+      partialUpdateCharacter(id: "${id}", data: {
+        ${statName}: ${typeof newValue === 'string' ? `"${newValue}"` : newValue}
+      }) {
         _id
         name
         game
@@ -76,7 +83,8 @@ export const getCharacter = async (name: string) => {
   });
 
   const { result } = await response.json();
-  const character = result.data.characterByName;
+  // eslint-disable-next-line no-underscore-dangle
+  const character = result.data.partialUpdateCharacter;
 
   const normalizedData = normalizeCharacterData(character);
 

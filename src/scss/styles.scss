@@ -40,6 +40,7 @@
 @use 'components/draggable-item';
 @use 'components/danger-button';
 @use 'components/error-message';
+@use 'components/mini-input';
 
 // utilities, prefix with `.util-` and include last for the cascade
 @use 'utilities/utilities';
