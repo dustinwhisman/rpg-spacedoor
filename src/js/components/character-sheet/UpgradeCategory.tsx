@@ -6,10 +6,21 @@ export const UpgradeCategory = (
   { title, upgrades, character }: { title: string, upgrades: Upgrade[], character: Character },
 ) => {
   const availableUpgrades = upgrades
-    .filter(({ canPurchase }) => canPurchase?.(character) ?? false);
+    .filter(({ canPurchase, cost }) => (
+      canPurchase?.(character) && character.experiencePoints >= cost
+    ));
 
   if (!availableUpgrades.length) {
-    return null;
+    return (
+      <>
+        <h3>
+          {title}
+        </h3>
+        <p>
+          {`You don't qualify for any ${title} yet.`}
+        </p>
+      </>
+    );
   }
 
   return (

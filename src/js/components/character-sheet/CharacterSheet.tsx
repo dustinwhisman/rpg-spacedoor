@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Character } from '../../types/types';
 import {
-  statUpgrades,
-  skillUpgrades,
   healthUpgrades,
   damageUpgrades,
   damageTypeUpgrades,
@@ -28,8 +26,9 @@ import { SecondaryStats } from './SecondaryStats';
 import { CharacterSkills } from './CharacterSkills';
 import { CharacterTraits } from './CharacterTraits';
 import { UpgradeCategory } from './UpgradeCategory';
-import { UpgradeCard } from './UpgradeCard';
 import { DeleteCharacter } from './DeleteCharacter';
+import { StatUpgrades } from './StatUpgrades';
+import { SkillUpgrades } from './SkillUpgrades';
 
 const CharacterSheet = ({ character }: { character: Character }) => {
   const [characterData, setCharacterData] = useState(character);
@@ -47,55 +46,8 @@ const CharacterSheet = ({ character }: { character: Character }) => {
         Available Upgrades
       </h2>
 
-      <details>
-        <summary>
-          Stat Upgrades
-        </summary>
-        <div className="cmp-stack">
-          {statUpgrades()
-            .filter((upgradesForStat) => upgradesForStat.some(({ canPurchase }) => (
-              canPurchase?.(characterData) ?? false
-            )))
-            .map((upgradesForStat) => (
-              <details key={upgradesForStat[0].stat}>
-                <summary className="summary-deca">
-                  {`${upgradesForStat[0].stat} Upgrades`}
-                </summary>
-                <div className="cmp-upgrade-card__grid">
-                  {upgradesForStat
-                    .filter(({ canPurchase }) => canPurchase?.(characterData) ?? false)
-                    .map(({ name, description, cost }) => (
-                      <UpgradeCard key={name} name={name} description={description} cost={cost} />
-                    ))}
-                </div>
-              </details>
-            ))}
-        </div>
-      </details>
-
-      <details>
-        <summary>
-          Skill Upgrades
-        </summary>
-        {skillUpgrades()
-          .filter((upgradesForSkill) => upgradesForSkill.some(({ canPurchase }) => (
-            canPurchase?.(characterData) ?? false
-          )))
-          .map((upgradesForSkill) => (
-            <details key={upgradesForSkill[0].skill}>
-              <summary className="summary-deca">
-                {`${upgradesForSkill[0].skill} Upgrades`}
-              </summary>
-              <div className="cmp-upgrade-card__grid">
-                {upgradesForSkill
-                  .filter(({ canPurchase }) => canPurchase?.(characterData) ?? false)
-                  .map(({ name, description, cost }) => (
-                    <UpgradeCard key={name} name={name} description={description} cost={cost} />
-                  ))}
-              </div>
-            </details>
-          ))}
-      </details>
+      <StatUpgrades characterData={characterData} />
+      <SkillUpgrades characterData={characterData} />
 
       <UpgradeCategory
         title="Health &amp; AP Upgrades"
