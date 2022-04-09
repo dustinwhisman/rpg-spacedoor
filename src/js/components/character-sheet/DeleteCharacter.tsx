@@ -40,24 +40,21 @@ export const DeleteCharacter = ({ character }: { character: Character }) => {
       <h2>
         Delete Character
       </h2>
-      <p>
-        {`Type "${character.name}" to confirm that you want to delete this character.`}
-      </p>
-      {loadingState === loadingStates.INVALID && (
-        <p className="cmp-error-message">
-          {`Your text does not match "${character.name}".`}
-        </p>
-      )}
-      {loadingState === loadingStates.SUCCESS && (
-        <p>
-          {`RIP: ${character.name}`}
-        </p>
-      )}
       <form onSubmit={handleSubmit} className="cmp-stack">
         <div>
           <label htmlFor="character-name">
-            Character Name
+            {`Type "${character.name}" to confirm that you want to delete this character.`}
           </label>
+          {loadingState === loadingStates.INVALID && (
+            <p className="cmp-error-message">
+              {`Your text does not match "${character.name}".`}
+            </p>
+          )}
+          {loadingState === loadingStates.SUCCESS && (
+            <p>
+              {`RIP: ${character.name}`}
+            </p>
+          )}
           <input id="character-name" type="text" name="character-name" />
         </div>
         <div>
