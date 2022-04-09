@@ -56,7 +56,7 @@ export const DeleteCharacter = ({ character }: { character: Character }) => {
       <form onSubmit={handleSubmit} className="cmp-stack">
         <div>
           <label htmlFor="character-name">
-            Email
+            Character Name
           </label>
           <input id="character-name" type="text" name="character-name" />
         </div>
