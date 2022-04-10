@@ -51,6 +51,7 @@ const FIELDS = `{
             name
             description
             cost
+            type
           }
         }
         inventory {

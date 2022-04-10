@@ -46,6 +46,7 @@ export type CharacterInput = {
       name: string,
       description: string,
       cost: number,
+      type?: string,
     }>
   },
   inventory: {

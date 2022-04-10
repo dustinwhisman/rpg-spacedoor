@@ -52,6 +52,7 @@ type Upgrade {
   name: String
   description: String
   cost: Int
+  type: String
 }
 
 type InventoryItem {

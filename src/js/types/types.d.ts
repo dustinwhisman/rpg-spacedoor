@@ -19,6 +19,7 @@ export interface Upgrade {
   name: string,
   description: string,
   cost: number,
+  type?: string,
   canPurchase?: (any) => boolean,
   onPurchase?: (any) => void,
   onExchange?: (any) => void,
