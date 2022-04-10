@@ -18,7 +18,8 @@ $paper: #{functions.theme-color('gray-95')};
     flex-direction: column;
     gap: functions.fluid-size-fallback('deci');
     gap: functions.fluid-size('deci');
-    width: min(100%, 30rem);
+    width: 100%;
+    max-width: 30rem;
   }
 
   &::after {

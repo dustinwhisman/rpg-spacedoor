@@ -1,5 +1,6 @@
 .cmp-container {
-  width: min(calc(100vw - 2rem), 75rem);
+  width: calc(100vw - 2rem);
+  max-width: 75rem;
   margin-left: auto;
   margin-right: auto;
 }
