@@ -30,7 +30,7 @@
 @function fluid-size-fallback($key) {
   $min: scale-value($key);
   $max: $min * modular-scale.$fluid-expansion;
-  $avg: ($min + $max) / 2;
+  $avg: math.div($min + $max, 2);
 
   @return #{$avg}rem;
 }
