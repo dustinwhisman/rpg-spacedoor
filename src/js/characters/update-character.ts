@@ -3,21 +3,7 @@ import { Character } from '../types/types';
 import { fetcher } from '../utilities/fetcher';
 import { normalizeCharacterData } from './normalize-character-data';
 
-export const updateBasicValue = async (
-  id: string,
-  statName: string,
-  newValue: string | number,
-): Promise<Character | null> => {
-  const { uid } = auth.currentUser ?? {};
-  if (!uid) {
-    return null;
-  }
-
-  const query = `
-    mutation {
-      partialUpdateCharacter(id: "${id}", data: {
-        ${statName}: ${typeof newValue === 'string' ? `"${newValue}"` : newValue}
-      }) {
+const FIELDS = `{
         _id
         name
         game
@@ -73,7 +59,23 @@ export const updateBasicValue = async (
             description
           }
         }
-      }
+      }`;
+
+export const updateBasicValue = async (
+  id: string,
+  statName: string,
+  newValue: string | number,
+): Promise<Character | null> => {
+  const { uid } = auth.currentUser ?? {};
+  if (!uid) {
+    return null;
+  }
+
+  const query = `
+    mutation {
+      partialUpdateCharacter(id: "${id}", data: {
+        ${statName}: ${typeof newValue === 'string' ? `"${newValue}"` : newValue}
+      }) ${FIELDS}
     }
   `;
 
