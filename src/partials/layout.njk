@@ -30,6 +30,7 @@
       {% endblock %}
     </main>
     <script src="/sitewide.js" type="module"></script>
+    <script src="/sitewide.legacy.js" nomodule></script>
     {% block scripts %}{% endblock %}
     <script>
       if ('serviceWorker' in navigator) {
