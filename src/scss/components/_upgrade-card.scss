@@ -63,7 +63,7 @@
     grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
     gap: functions.fluid-size-fallback('base');
     gap: functions.fluid-size('base');
-    margin-block-start: 1rem;
+    margin-top: 1rem;
   }
 
   &__name {
@@ -75,14 +75,14 @@
   &__description {
     font-size: functions.fluid-size-fallback('deci');
     font-size: functions.fluid-size('deci');
-    margin-block-end: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 
   &__cost {
     font-size: functions.fluid-size-fallback('deci');
     font-size: functions.fluid-size('deci');
     font-weight: 700;
-    margin-block-start: auto;
+    margin-top: auto;
     text-align: right;
   }
 }

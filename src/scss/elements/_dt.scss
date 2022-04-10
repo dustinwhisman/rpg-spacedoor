@@ -5,7 +5,7 @@ dt {
   font-size: functions.fluid-size('base');
 
   &:not(:first-child) {
-    margin-block-start: functions.fluid-size-fallback('deca');
-    margin-block-start: functions.fluid-size('deca');
+    margin-top: functions.fluid-size-fallback('deca');
+    margin-top: functions.fluid-size('deca');
   }
 }

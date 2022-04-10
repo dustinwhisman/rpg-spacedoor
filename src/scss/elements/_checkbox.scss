@@ -9,7 +9,7 @@ input[type='checkbox'] {
 
   + label {
     display: inline;
-    padding-inline-start: functions.fluid-size-fallback('centi');
-    padding-inline-start: functions.fluid-size('centi');
+    padding-left: functions.fluid-size-fallback('centi');
+    padding-left: functions.fluid-size('centi');
   }
 }

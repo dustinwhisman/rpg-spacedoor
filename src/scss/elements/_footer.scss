@@ -1,6 +1,8 @@
 @use '../tools/functions';
 
 footer {
-  padding-block: functions.fluid-size-fallback('base');
-  padding-block: functions.fluid-size('base');
+  padding-top: functions.fluid-size-fallback('base');
+  padding-top: functions.fluid-size('base');
+  padding-bottom: functions.fluid-size-fallback('base');
+  padding-bottom: functions.fluid-size('base');
 }

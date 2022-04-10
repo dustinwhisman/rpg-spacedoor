@@ -5,8 +5,8 @@
   grid-template-columns: 1fr;
   gap: functions.fluid-size-fallback('kilo');
   gap: functions.fluid-size('kilo');
-  padding-block-end: functions.fluid-size-fallback('kilo');
-  padding-block-end: functions.fluid-size('kilo');
+  padding-bottom: functions.fluid-size-fallback('kilo');
+  padding-bottom: functions.fluid-size('kilo');
 
   @media (min-width: 50rem) {
     grid-template-columns: auto 1fr;
@@ -22,11 +22,12 @@
 
   &__navigation {
     list-style: none;
-    padding-inline: 0;
+    padding-left: 0;
+    padding-right: 0;
 
     &--level-2 {
-      padding-inline-start: functions.fluid-size-fallback('base');
-      padding-inline-start: functions.fluid-size('base');
+      padding-left: functions.fluid-size-fallback('base');
+      padding-left: functions.fluid-size('base');
     }
   }
 }
