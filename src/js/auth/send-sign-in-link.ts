@@ -1,5 +1,5 @@
 import { sendSignInLinkToEmail } from 'firebase/auth';
-import { auth } from './auth.js';
+import { auth } from './auth';
 
 export const sendSignInLink = (
   url: string,

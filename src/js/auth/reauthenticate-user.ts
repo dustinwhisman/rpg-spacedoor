@@ -1,5 +1,5 @@
 import { reauthenticateWithCredential, EmailAuthProvider } from 'firebase/auth';
-import { auth } from './auth.js';
+import { auth } from './auth';
 
 export const reauthenticateUser = (handleSuccess: () => void, handleError: () => void) => {
   const user = auth.currentUser;
