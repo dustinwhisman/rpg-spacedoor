@@ -5,12 +5,14 @@ export type CharacterInput = {
   group: string,
   stats: {
     data: Array<{
+      _id: string,
       name: string,
       die: string,
       bonus: number,
       dcBonus: number,
       skills: {
         data: Array<{
+          _id: string,
           name: string,
           die: string,
           bonusDie: string,
@@ -43,6 +45,7 @@ export type CharacterInput = {
   immunities: string[],
   upgrades: {
     data: Array<{
+      _id: string,
       name: string,
       description: string,
       cost: number,
@@ -51,6 +54,7 @@ export type CharacterInput = {
   },
   inventory: {
     data: Array<{
+      _id: string,
       name: string,
       description: string,
     }>,

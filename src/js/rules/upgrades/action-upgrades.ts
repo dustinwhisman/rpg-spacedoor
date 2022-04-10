@@ -1,6 +1,16 @@
+import { purchaseActionUpgrade } from '../../characters/update-character';
 import { Character, Upgrade } from '../../types/types';
 import { statusEffects } from '../status-effects';
 import { isUpgradeAvailable } from './prereqs';
+
+const purchaseAction = (character: Character, upgrade: Upgrade) => purchaseActionUpgrade(
+  character._id,
+  character.experiencePoints,
+  upgrade.name,
+  upgrade.description,
+  upgrade.cost,
+  upgrade.type ?? null,
+);
 
 export const healingActions = (): Upgrade[] => {
   const upgrades = [
@@ -10,6 +20,7 @@ export const healingActions = (): Upgrade[] => {
       cost: 1,
       type: 'action',
       canPurchase: (character: Character) => isUpgradeAvailable(character, 'Cure (Level 1)'),
+      onPurchase: purchaseAction,
     },
     {
       name: 'Cure (Level 2)',
@@ -20,6 +31,7 @@ export const healingActions = (): Upgrade[] => {
         !isUpgradeAvailable(character, 'Cure (Level 1)')
         && isUpgradeAvailable(character, 'Cure (Level 2)')
       ),
+      onPurchase: purchaseAction,
     },
     {
       name: 'Cure (Level 3)',
@@ -31,6 +43,7 @@ export const healingActions = (): Upgrade[] => {
         && !isUpgradeAvailable(character, 'Cure (Level 2)')
         && isUpgradeAvailable(character, 'Cure (Level 3)')
       ),
+      onPurchase: purchaseAction,
     },
     {
       name: 'Remedy (Level 1)',
@@ -38,6 +51,7 @@ export const healingActions = (): Upgrade[] => {
       cost: 1,
       type: 'action',
       canPurchase: (character: Character) => isUpgradeAvailable(character, 'Remedy (Level 1)'),
+      onPurchase: purchaseAction,
     },
     {
       name: 'Remedy (Level 2)',
@@ -48,6 +62,7 @@ export const healingActions = (): Upgrade[] => {
         !isUpgradeAvailable(character, 'Remedy (Level 1)')
         && isUpgradeAvailable(character, 'Remedy (Level 2)')
       ),
+      onPurchase: purchaseAction,
     },
     {
       name: 'Remedy (Level 3)',
@@ -59,6 +74,7 @@ export const healingActions = (): Upgrade[] => {
         && !isUpgradeAvailable(character, 'Remedy (Level 2)')
         && isUpgradeAvailable(character, 'Remedy (Level 3)')
       ),
+      onPurchase: purchaseAction,
     },
   ];
 
@@ -77,6 +93,7 @@ export const statusEffectActions = (): Upgrade[] => {
         cost: 1,
         type: 'action',
         canPurchase: (character: Character) => isUpgradeAvailable(character, `Inflict "${name}" (Level 1)`),
+        onPurchase: purchaseAction,
       });
 
       upgrades.push({
@@ -88,6 +105,7 @@ export const statusEffectActions = (): Upgrade[] => {
           !isUpgradeAvailable(character, `Inflict "${name}" (Level 1)`)
           && isUpgradeAvailable(character, `Inflict "${name}" (Level 2)`)
         ),
+        onPurchase: purchaseAction,
       });
 
       upgrades.push({
@@ -100,6 +118,7 @@ export const statusEffectActions = (): Upgrade[] => {
           && !isUpgradeAvailable(character, `Inflict "${name}" (Level 2)`)
           && isUpgradeAvailable(character, `Inflict "${name}" (Level 3)`)
         ),
+        onPurchase: purchaseAction,
       });
     });
 

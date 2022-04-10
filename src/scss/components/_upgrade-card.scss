@@ -1,8 +1,13 @@
 @use '../tools/functions';
 
 .cmp-upgrade-card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-areas:
+    "name"
+    "description"
+    "button-block"
+    "cost";
+  grid-template-rows: auto 1fr auto auto;
   gap: functions.fluid-size-fallback('deci');
   gap: functions.fluid-size('deci');
   padding: functions.fluid-size-fallback('deci');
@@ -67,22 +72,28 @@
   }
 
   &__name {
+    grid-area: name;
     font-size: functions.fluid-size-fallback('deci');
     font-size: functions.fluid-size('deci');
     text-transform: uppercase;
   }
 
   &__description {
+    grid-area: description;
     font-size: functions.fluid-size-fallback('deci');
     font-size: functions.fluid-size('deci');
-    margin-bottom: 0.5rem;
+    // margin-bottom: 0.5rem;
+  }
+
+  &__button-block {
+    grid-area: button-block;
   }
 
   &__cost {
+    grid-area: cost;
     font-size: functions.fluid-size-fallback('deci');
     font-size: functions.fluid-size('deci');
     font-weight: 700;
-    margin-top: auto;
     text-align: right;
   }
 }

@@ -46,78 +46,92 @@ const CharacterSheet = ({ character }: { character: Character }) => {
         Available Upgrades
       </h2>
 
-      <StatUpgrades characterData={characterData} />
-      <SkillUpgrades characterData={characterData} />
+      <StatUpgrades characterData={characterData} update={setCharacterData} />
+      <SkillUpgrades characterData={characterData} update={setCharacterData} />
 
       <UpgradeCategory
         title="Health &amp; AP Upgrades"
         upgrades={healthUpgrades()}
         character={characterData}
+        update={setCharacterData}
       />
       <UpgradeCategory
         title="Damage Upgrades"
         upgrades={damageUpgrades()}
         character={characterData}
+        update={setCharacterData}
       />
       <UpgradeCategory
         title="Damage Type Upgrades"
         upgrades={damageTypeUpgrades()}
         character={characterData}
+        update={setCharacterData}
       />
       <UpgradeCategory
         title="Status Effect Upgrades"
         upgrades={statusEffectUpgrades()}
         character={characterData}
+        update={setCharacterData}
       />
       <UpgradeCategory
         title="Shield Upgrades"
         upgrades={shieldUpgrades()}
         character={characterData}
+        update={setCharacterData}
       />
       <UpgradeCategory
         title="Remove Vulnerability Upgrades"
         upgrades={removeVulnerabilityUpgrades()}
         character={characterData}
+        update={setCharacterData}
       />
       <UpgradeCategory
         title="Resistance Upgrades"
         upgrades={resistanceUpgrades()}
         character={characterData}
+        update={setCharacterData}
       />
       <UpgradeCategory
         title="Immunity Upgrades"
         upgrades={immunityUpgrades()}
         character={characterData}
+        update={setCharacterData}
       />
       <UpgradeCategory
         title="Healing Actions"
         upgrades={healingActions()}
         character={characterData}
+        update={setCharacterData}
       />
       <UpgradeCategory
         title="Status Effect Actions"
         upgrades={statusEffectActions()}
         character={characterData}
+        update={setCharacterData}
       />
       <UpgradeCategory
         title="Standard Bonus Actions"
         upgrades={bonusActions()}
         character={characterData}
+        update={setCharacterData}
       />
       <UpgradeCategory
         title="Healing Bonus Actions"
         upgrades={bonusHealingActions()}
         character={characterData}
+        update={setCharacterData}
       />
       <UpgradeCategory
         title="Status Effect Bonus Actions"
         upgrades={bonusStatusEffectActions()}
         character={characterData}
+        update={setCharacterData}
       />
       <UpgradeCategory
         title="Reactions"
         upgrades={reactionUpgrades()}
         character={characterData}
+        update={setCharacterData}
       />
 
       <DeleteCharacter character={characterData} />

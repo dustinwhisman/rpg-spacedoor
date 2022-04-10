@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import { statUpgrades } from '../../rules/upgrades';
 import { Character } from '../../types/types';
 import { UpgradeCard } from './UpgradeCard';
 
-export const StatUpgrades = ({ characterData }: { characterData: Character }) => {
+export const StatUpgrades = ({
+  characterData,
+  update,
+}: {
+  characterData: Character,
+  update: Dispatch<SetStateAction<Character>>
+}) => {
   const upgrades = statUpgrades();
   const statsWithUpgrades = upgrades
     .filter((upgradesForStat) => upgradesForStat.some(({ canPurchase, cost }) => (
@@ -40,8 +46,19 @@ export const StatUpgrades = ({ characterData }: { characterData: Character }) =>
                   .filter(({ canPurchase, cost }) => (
                     canPurchase?.(characterData) && characterData.experiencePoints >= cost
                   ))
-                  .map(({ name, description, cost }) => (
-                    <UpgradeCard key={name} name={name} description={description} cost={cost} />
+                  .map(({
+                    name, description, cost, type, onPurchase,
+                  }) => (
+                    <UpgradeCard
+                      key={name}
+                      character={characterData}
+                      name={name}
+                      description={description}
+                      cost={cost}
+                      type={type}
+                      onPurchase={onPurchase}
+                      update={update}
+                    />
                   ))}
               </div>
             </details>

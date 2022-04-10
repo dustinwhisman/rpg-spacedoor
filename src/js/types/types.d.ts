@@ -21,7 +21,7 @@ export interface Upgrade {
   cost: number,
   type?: string,
   canPurchase?: (any) => boolean,
-  onPurchase?: (any) => void,
+  onPurchase?: (character: Character, upgrade: Upgrade) => Promise<Character | null>,
   onExchange?: (any) => void,
 }
 

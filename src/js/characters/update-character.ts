@@ -10,12 +10,14 @@ const FIELDS = `{
         group
         stats {
           data {
+            _id
             name
             die
             bonus
             dcBonus
             skills {
               data {
+                _id
                 name
                 die
                 bonusDie
@@ -48,6 +50,7 @@ const FIELDS = `{
         immunities
         upgrades {
           data {
+            _id
             name
             description
             cost
@@ -56,6 +59,7 @@ const FIELDS = `{
         }
         inventory {
           data {
+            _id
             name
             description
           }
@@ -88,6 +92,54 @@ export const updateBasicValue = async (
   const { result } = await response.json();
   // eslint-disable-next-line no-underscore-dangle
   const character = result.data.partialUpdateCharacter;
+
+  const normalizedData = normalizeCharacterData(character);
+
+  return normalizedData;
+};
+
+export const purchaseActionUpgrade = async (
+  id: string,
+  currentExperience: number,
+  name: string,
+  description: string,
+  cost: number,
+  type: string | null,
+): Promise<Character | null> => {
+  const { uid } = auth.currentUser ?? {};
+  if (!uid) {
+    return null;
+  }
+
+  const query = `
+    mutation {
+      partialUpdateCharacter(id: "${id}", data: {
+        experiencePoints: ${currentExperience - cost}
+      }) {
+        experiencePoints
+      }
+      createUpgrade(data: {
+        character: {
+          connect: "${id}"
+        }
+        name: "${name}"
+        description: "${description}"
+        cost: ${cost}
+        ${type != null ? `type: "${type}"` : ''}
+      }) {
+        character ${FIELDS}
+      }
+    }
+  `;
+
+  const response = await fetcher('/api/graphql', {
+    method: 'POST',
+    body: JSON.stringify({ query }),
+  });
+
+  const { result } = await response.json();
+
+  const { character } = result.data.createUpgrade;
 
   const normalizedData = normalizeCharacterData(character);
 
