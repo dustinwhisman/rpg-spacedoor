@@ -19,5 +19,5 @@
 
 .util-display-flex {
   display: flex;
-  gap: functions.fluid-size('base');
+  gap: functions.fluid-size-fallback('base');
 }

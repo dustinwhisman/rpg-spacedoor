@@ -26,3 +26,11 @@
 
   @return clamp(#{$min}rem, #{$y-axis-intersection}rem + #{$slope * 100}vw, #{$max}rem);
 }
+
+@function fluid-size-fallback($key) {
+  $min: scale-value($key);
+  $max: $min * modular-scale.$fluid-expansion;
+  $avg: ($min + $max) / 2;
+
+  @return #{$avg}rem;
+}

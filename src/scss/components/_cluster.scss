@@ -2,6 +2,7 @@
 
 .cmp-cluster {
   display: flex;
+  gap: functions.fluid-size-fallback('base');
   gap: functions.fluid-size('base');
   flex-wrap: wrap;
 

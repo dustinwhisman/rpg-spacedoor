@@ -3,7 +3,9 @@
 .cmp-upgrade-card {
   display: flex;
   flex-direction: column;
+  gap: functions.fluid-size-fallback('deci');
   gap: functions.fluid-size('deci');
+  padding: functions.fluid-size-fallback('deci');
   padding: functions.fluid-size('deci');
   background-color: var(--paper);
   border: 0.125rem solid var(--ink);
@@ -13,9 +15,13 @@
     content: '';
     display: block;
     position: absolute;
+    bottom: functions.fluid-size-fallback('deci');
     bottom: functions.fluid-size('deci');
+    left: functions.fluid-size-fallback('deci');
     left: functions.fluid-size('deci');
+    width: functions.fluid-size-fallback('deci');
     width: functions.fluid-size('deci');
+    height: functions.fluid-size-fallback('deci');
     height: functions.fluid-size('deci');
     border-radius: 50%;
   }
@@ -47,21 +53,25 @@
   &__grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    gap: functions.fluid-size-fallback('base');
     gap: functions.fluid-size('base');
     margin-block-start: 1rem;
   }
 
   &__name {
+    font-size: functions.fluid-size-fallback('deci');
     font-size: functions.fluid-size('deci');
     text-transform: uppercase;
   }
 
   &__description {
+    font-size: functions.fluid-size-fallback('deci');
     font-size: functions.fluid-size('deci');
     margin-block-end: 0.5rem;
   }
 
   &__cost {
+    font-size: functions.fluid-size-fallback('deci');
     font-size: functions.fluid-size('deci');
     font-weight: 700;
     margin-block-start: auto;

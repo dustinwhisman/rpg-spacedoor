@@ -1,5 +1,6 @@
 @use '../tools/functions';
 
 nav {
+  font-size: functions.fluid-size-fallback('base');
   font-size: functions.fluid-size('base');
 }

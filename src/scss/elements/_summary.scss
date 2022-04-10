@@ -1,6 +1,7 @@
 @use '../tools/functions';
 
 summary {
+  font-size: functions.fluid-size-fallback('hecto');
   font-size: functions.fluid-size('hecto');
   font-family: functions.font-family('sans');
   font-weight: 700;
@@ -9,6 +10,7 @@ summary {
   cursor: pointer;
 
   &.summary-deca {
+    font-size: functions.fluid-size-fallback('deca');
     font-size: functions.fluid-size('deca');
   }
 }

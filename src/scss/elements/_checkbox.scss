@@ -2,11 +2,14 @@
 
 input[type='checkbox'] {
   accent-color: var(--ink);
+  width: functions.fluid-size-fallback('base');
   width: functions.fluid-size('base');
+  height: functions.fluid-size-fallback('base');
   height: functions.fluid-size('base');
 
   + label {
     display: inline;
+    padding-inline-start: functions.fluid-size-fallback('centi');
     padding-inline-start: functions.fluid-size('centi');
   }
 }

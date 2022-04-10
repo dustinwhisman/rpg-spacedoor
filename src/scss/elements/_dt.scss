@@ -1,9 +1,11 @@
 @use '../tools/functions';
 
 dt {
+  font-size: functions.fluid-size-fallback('base');
   font-size: functions.fluid-size('base');
 
   &:not(:first-child) {
+    margin-block-start: functions.fluid-size-fallback('deca');
     margin-block-start: functions.fluid-size('deca');
   }
 }

@@ -7,6 +7,7 @@ button {
   padding: 0.25em 0.5em;
   width: max-content;
   max-width: 100%;
+  font-size: functions.fluid-size-fallback('deci');
   font-size: functions.fluid-size('deci');
   box-shadow: 0.2em 0.2em 0 0 var(--shadow-color);
 }

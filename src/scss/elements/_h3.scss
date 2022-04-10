@@ -1,6 +1,7 @@
 @use '../tools/functions';
 
 h3 {
+  font-size: functions.fluid-size-fallback('hecto');
   font-size: functions.fluid-size('hecto');
   font-family: functions.font-family('sans');
   line-height: calc(1em + 0.5rem);

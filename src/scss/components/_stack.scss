@@ -3,13 +3,16 @@
 .cmp-stack {
   display: flex;
   flex-direction: column;
+  gap: functions.fluid-size-fallback('base');
   gap: functions.fluid-size('base');
 
   &--deci {
+    gap: functions.fluid-size-fallback('deci');
     gap: functions.fluid-size('deci');
   }
 
   &--hecto {
+    gap: functions.fluid-size-fallback('hecto');
     gap: functions.fluid-size('hecto');
   }
 }

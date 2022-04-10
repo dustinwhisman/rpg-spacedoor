@@ -1,6 +1,7 @@
 @use '../tools/functions';
 
 h4 {
+  font-size: functions.fluid-size-fallback('deca');
   font-size: functions.fluid-size('deca');
   font-family: functions.font-family('sans');
   line-height: calc(1em + 0.5rem);

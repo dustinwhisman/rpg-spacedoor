@@ -1,13 +1,11 @@
-[data-auth-state] {
-  &:is([data-auth-state='logged-out']) {
-    [href='/account'] {
-      display: none;
-    }
+[data-auth-state='logged-out'] {
+  [href='/account'] {
+    display: none;
   }
+}
 
-  &:is([data-auth-state='logged-in']) {
-    [href='/login'] {
-      display: none;
-    }
+[data-auth-state='logged-in'] {
+  [href='/login'] {
+    display: none;
   }
 }

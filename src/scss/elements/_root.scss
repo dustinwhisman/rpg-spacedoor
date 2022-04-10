@@ -17,7 +17,9 @@
 
   font-family: functions.font-family('serif');
   scroll-snap-type: y mandatory;
+  background-color: #{functions.theme-color('gray-95')};
   background-color: var(--paper);
+  color: #{functions.theme-color('gray-5')};
   color: var(--ink);
 
   @media (prefers-color-scheme: dark) {

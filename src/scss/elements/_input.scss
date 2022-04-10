@@ -6,5 +6,6 @@ input {
   border: 0.125em solid var(--ink);
   padding: 0.25em 0.5em;
   width: min(40ch, 100%);
+  font-size: functions.fluid-size-fallback('deci');
   font-size: functions.fluid-size('deci');
 }

@@ -1,6 +1,7 @@
 @use '../tools/functions';
 
 h2 {
+  font-size: functions.fluid-size-fallback('kilo');
   font-size: functions.fluid-size('kilo');
   font-family: functions.font-family('sans');
   line-height: calc(1em + 0.5rem);
