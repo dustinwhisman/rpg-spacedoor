@@ -1,6 +1,10 @@
 @use '../tools/functions';
 
+$ink: #{functions.theme-color('gray-5')};
+$paper: #{functions.theme-color('gray-95')};
+
 .cmp-draggable-item {
+  border: 0.125rem solid $ink;
   border: 0.125rem solid var(--ink);
   padding: functions.fluid-size-fallback('centi');
   padding: functions.fluid-size('centi');
@@ -29,6 +33,7 @@
     height: functions.fluid-size-fallback('base');
     height: functions.fluid-size('base');
     transform: translateY(-50%);
+    background: repeating-linear-gradient(to bottom, $ink, $ink 15%, $paper 15%, $paper 42%);
     background: repeating-linear-gradient(to bottom, var(--ink), var(--ink) 15%, var(--paper) 15%, var(--paper) 42%);
   }
 }

@@ -1,8 +1,11 @@
 @use '../tools/functions';
 
 input {
+  background-color: #{functions.theme-color('gray-95')};
   background-color: var(--paper);
+  color: #{functions.theme-color('gray-5')};
   color: var(--ink);
+  border: 0.125rem solid #{functions.theme-color('gray-5')};
   border: 0.125em solid var(--ink);
   padding: 0.25em 0.5em;
   width: min(40ch, 100%);

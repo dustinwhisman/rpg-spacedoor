@@ -1,13 +1,17 @@
 @use '../tools/functions';
 
 button {
+  background-color: #{functions.theme-color('gray-95')};
   background-color: var(--paper);
+  color: #{functions.theme-color('gray-5')};
   color: var(--ink);
+  border: 0.125rem solid #{functions.theme-color('gray-5')};
   border: 0.125em solid var(--ink);
   padding: 0.25em 0.5em;
   width: max-content;
   max-width: 100%;
   font-size: functions.fluid-size-fallback('deci');
   font-size: functions.fluid-size('deci');
+  box-shadow: 0.2em 0.2em 0 0 #{functions.theme-color('gray-50')};
   box-shadow: 0.2em 0.2em 0 0 var(--shadow-color);
 }

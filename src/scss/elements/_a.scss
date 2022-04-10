@@ -1,6 +1,7 @@
 @use '../tools/functions';
 
 a {
+  color: #{functions.theme-color('gray-5')};
   color: var(--ink);
 
   &:hover {

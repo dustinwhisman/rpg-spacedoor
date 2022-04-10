@@ -3,5 +3,6 @@
 .cmp-error-message {
   font-size: functions.fluid-size-fallback('deci');
   font-size: functions.fluid-size('deci');
+  color: #{functions.theme-color('red')};
   color: var(--danger-color);
 }
