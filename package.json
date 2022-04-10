@@ -7,7 +7,7 @@
     "prestart": "npm run clean",
     "prebuild": "npm run clean",
     "start": "netlify dev --command \"npm run dev\"",
-    "dev": "run-p eleventy:dev sass:dev js:dev js:dev:legacy",
+    "dev": "run-p eleventy:dev sass:dev js:dev",
     "build": "run-s eleventy:build sass:build js:build js:build:legacy",
     "eleventy:dev": "eleventy --serve",
     "eleventy:build": "eleventy",
