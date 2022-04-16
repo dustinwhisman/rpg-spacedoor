@@ -78,8 +78,8 @@ export const updateBasicValue = async (
 
   const query = `
     mutation {
-      partialUpdateCharacter(id: "${id}", data: {
-        ${statName}: ${typeof newValue === 'string' ? `"${newValue}"` : newValue}
+      partialUpdateCharacter(id: ${JSON.stringify(id)}, data: {
+        ${statName}: ${typeof newValue === 'string' ? `${JSON.stringify(newValue)}` : newValue}
       }) ${FIELDS}
     }
   `;
@@ -113,19 +113,19 @@ export const purchaseActionUpgrade = async (
 
   const query = `
     mutation {
-      partialUpdateCharacter(id: "${id}", data: {
+      partialUpdateCharacter(id: ${JSON.stringify(id)}, data: {
         experiencePoints: ${currentExperience - cost}
       }) {
         experiencePoints
       }
       createUpgrade(data: {
         character: {
-          connect: "${id}"
+          connect: ${JSON.stringify(id)}
         }
-        name: "${name}"
-        description: "${description}"
+        name: ${JSON.stringify(name)}
+        description: ${JSON.stringify(description)}
         cost: ${cost}
-        ${type != null ? `type: "${type}"` : ''}
+        ${type != null ? `type: ${JSON.stringify(type)}` : ''}
       }) {
         character ${FIELDS}
       }

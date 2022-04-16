@@ -9,7 +9,7 @@ export const getCharacters = async () => {
 
   const query = `
     query {
-      charactersByGame(uid: "${uid}", game: "Spacedoor!") {
+      charactersByGame(uid: ${JSON.stringify(uid)}, game: "Spacedoor!") {
         data {
           _id
           name

@@ -9,7 +9,7 @@ export const deleteCharacter = async (id: string): Promise<string | null> => {
 
   const query = `
     mutation {
-      deleteCharacter(id: "${id}") {
+      deleteCharacter(id: ${JSON.stringify(id)}) {
         _id
       }
     }

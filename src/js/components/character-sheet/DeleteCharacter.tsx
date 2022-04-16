@@ -43,11 +43,11 @@ export const DeleteCharacter = ({ character }: { character: Character }) => {
       <form onSubmit={handleSubmit} className="cmp-stack">
         <div>
           <label htmlFor="character-name">
-            {`Type "${character.name}" to confirm that you want to delete this character.`}
+            {`Type ${JSON.stringify(character.name)} to confirm that you want to delete this character.`}
           </label>
           {loadingState === loadingStates.INVALID && (
             <p className="cmp-error-message">
-              {`Your text does not match "${character.name}".`}
+              {`Your text does not match ${JSON.stringify(character.name)}.`}
             </p>
           )}
           {loadingState === loadingStates.SUCCESS && (

@@ -88,35 +88,35 @@ export const statusEffectActions = (): Upgrade[] => {
     .filter(({ inflictedBy }) => inflictedBy.includes('action'))
     .forEach(({ name, savingThrow, opposedStat }) => {
       upgrades.push({
-        name: `Inflict "${name}" (Level 1)`,
+        name: `Inflict ${JSON.stringify(name)} (Level 1)`,
         description: `Spend an Action Point to inflict the ${name} effect on a single target with your Action. Affected targets will make ${savingThrow} saving throws against your ${opposedStat} DC to try to avoid the effect.`,
         cost: 1,
         type: 'action',
-        canPurchase: (character: Character) => isUpgradeAvailable(character, `Inflict "${name}" (Level 1)`),
+        canPurchase: (character: Character) => isUpgradeAvailable(character, `Inflict ${JSON.stringify(name)} (Level 1)`),
         onPurchase: purchaseAction,
       });
 
       upgrades.push({
-        name: `Inflict "${name}" (Level 2)`,
+        name: `Inflict ${JSON.stringify(name)} (Level 2)`,
         description: `Spend more Action Points to inflict the ${name} effect on one target per Action Point.`,
         cost: 2,
         type: 'action',
         canPurchase: (character: Character) => (
-          !isUpgradeAvailable(character, `Inflict "${name}" (Level 1)`)
-          && isUpgradeAvailable(character, `Inflict "${name}" (Level 2)`)
+          !isUpgradeAvailable(character, `Inflict ${JSON.stringify(name)} (Level 1)`)
+          && isUpgradeAvailable(character, `Inflict ${JSON.stringify(name)} (Level 2)`)
         ),
         onPurchase: purchaseAction,
       });
 
       upgrades.push({
-        name: `Inflict "${name}" (Level 3)`,
+        name: `Inflict ${JSON.stringify(name)} (Level 3)`,
         description: `Spend three Action Points to force targets to roll with disadvantage on their saving throws to avoid the ${name} effect.`,
         cost: 3,
         type: 'action',
         canPurchase: (character: Character) => (
-          !isUpgradeAvailable(character, `Inflict "${name}" (Level 1)`)
-          && !isUpgradeAvailable(character, `Inflict "${name}" (Level 2)`)
-          && isUpgradeAvailable(character, `Inflict "${name}" (Level 3)`)
+          !isUpgradeAvailable(character, `Inflict ${JSON.stringify(name)} (Level 1)`)
+          && !isUpgradeAvailable(character, `Inflict ${JSON.stringify(name)} (Level 2)`)
+          && isUpgradeAvailable(character, `Inflict ${JSON.stringify(name)} (Level 3)`)
         ),
         onPurchase: purchaseAction,
       });

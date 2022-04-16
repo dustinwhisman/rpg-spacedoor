@@ -22,22 +22,22 @@ const generateQuery = (
 ): string => `
   mutation {
     createCharacter(data: {
-      uid: "${uid}"
-      name: "${name}"
+      uid: ${JSON.stringify(uid)}
+      name: ${JSON.stringify(name)}
       game: "Spacedoor!"
-      group: "${groupName}"
+      group: ${JSON.stringify(groupName)}
       stats: {
         create: [${stats.map(({ name: statName, skills }) => `
           {
-            name: "${statName}"
-            die: "${statMap[statName]}"
+            name: ${JSON.stringify(statName)}
+            die: ${JSON.stringify(statMap[statName])}
             bonus: 0
             dcBonus: 0
             skills: {
               create: [${skills.map(({ name: skillName }) => `
                 {
-                  name: "${skillName}"
-                  die: "${statMap[statName]}"
+                  name: ${JSON.stringify(skillName)}
+                  die: ${JSON.stringify(statMap[statName])}
                   bonusDie: ""
                   bonus: 0
                 }
@@ -46,10 +46,10 @@ const generateQuery = (
           }
         `).join('')}]
       }
-      damageDie: "${statMap.Offense}"
+      damageDie: ${JSON.stringify(statMap.Offense)}
       numDamageDie: 1
       damageBonus: 0
-      healingDie: "${statMap.Healing}"
+      healingDie: ${JSON.stringify(statMap.Healing)}
       numHealingDie: 1
       healingBonus: 0
       damageThreshold: ${statMap.Defense}
@@ -65,9 +65,9 @@ const generateQuery = (
       shieldHitPointMultiplier: 1
       shieldHitPoints: 0
       shieldHitPointRegen: 0
-      vulnerabilities: ["${vulnerabilities.join('", "')}"]
-      resistances: ["${resistances.join('", "')}"]
-      immunities: ["${immunities.join('", "')}"]
+      vulnerabilities: [${JSON.stringify(vulnerabilities.join('", "'))}]
+      resistances: [${JSON.stringify(resistances.join('", "'))}]
+      immunities: [${JSON.stringify(immunities.join('", "'))}]
       upgrades: {
         create: []
       }
