@@ -247,3 +247,57 @@ export const updateResistances = async (
 
   return normalizedData;
 };
+
+export const purchaseSkillUpgrade = async (
+  id: string,
+  currentExperience: number,
+  name: string,
+  description: string,
+  cost: number,
+  skillId: string,
+  skillStatName: string,
+  newValue: string | number,
+): Promise<Character | null> => {
+  const { uid } = auth.currentUser ?? {};
+  if (!uid) {
+    return null;
+  }
+
+  const query = `
+    mutation {
+      partialUpdateCharacter(id: ${JSON.stringify(id)}, data: {
+        experiencePoints: ${currentExperience - cost}
+      }) {
+        experiencePoints
+      }
+      partialUpdateSkill(id: ${JSON.stringify(skillId)}, data: {
+        ${skillStatName}: ${typeof newValue === 'string' ? `${JSON.stringify(newValue)}` : newValue}
+      }) {
+        ${skillStatName}
+      }
+      createUpgrade(data: {
+        character: {
+          connect: ${JSON.stringify(id)}
+        }
+        name: ${JSON.stringify(name)}
+        description: ${JSON.stringify(description)}
+        cost: ${cost}
+      }) {
+        character ${FIELDS}
+      }
+    }
+  `;
+
+  const response = await fetcher('/api/graphql', {
+    method: 'POST',
+    body: JSON.stringify({ query }),
+  });
+
+  const { result } = await response.json();
+
+  const { character } = result.data.createUpgrade;
+
+  const normalizedData = normalizeCharacterData(character);
+
+  return normalizedData;
+};

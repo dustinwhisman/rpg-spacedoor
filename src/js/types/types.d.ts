@@ -1,4 +1,5 @@
 export interface Skill {
+  _id?: string,
   name: string,
   die: string,
   bonusDie: string,
@@ -6,6 +7,7 @@ export interface Skill {
 }
 
 export interface Stat {
+  _id?: string,
   name: string,
   die: string,
   bonus: number,
@@ -14,6 +16,7 @@ export interface Stat {
 }
 
 export interface Upgrade {
+  _id?: string,
   stat?: string,
   skill?: string,
   name: string,
@@ -26,6 +29,7 @@ export interface Upgrade {
 }
 
 export interface InventoryItem {
+  _id?: string,
   name: string,
   description: string,
 }

@@ -17,12 +17,14 @@ export const getCharacter = async (name: string) => {
         group
         stats {
           data {
+            _id
             name
             die
             bonus
             dcBonus
             skills {
               data {
+                _id
                 name
                 die
                 bonusDie
@@ -55,13 +57,16 @@ export const getCharacter = async (name: string) => {
         immunities
         upgrades {
           data {
+            _id
             name
             description
             cost
+            type
           }
         }
         inventory {
           data {
+            _id
             name
             description
           }
