@@ -65,9 +65,9 @@ const generateQuery = (
       shieldHitPointMultiplier: 1
       shieldHitPoints: 0
       shieldHitPointRegen: 0
-      vulnerabilities: [${JSON.stringify(vulnerabilities.join('", "'))}]
-      resistances: [${JSON.stringify(resistances.join('", "'))}]
-      immunities: [${JSON.stringify(immunities.join('", "'))}]
+      vulnerabilities: ["${vulnerabilities.join('", "')}"]
+      resistances: ["${resistances.join('", "')}"]
+      immunities: ["${immunities.join('", "')}"]
       upgrades: {
         create: []
       }

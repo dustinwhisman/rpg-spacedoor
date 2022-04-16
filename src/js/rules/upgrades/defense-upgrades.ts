@@ -1,5 +1,5 @@
 import { computedStat } from '../../characters/computed-stat';
-import { purchaseSimpleUpgrade } from '../../characters/update-character';
+import { purchaseSimpleUpgrade, updateResistances } from '../../characters/update-character';
 import { Character, StatToUpdate, Upgrade } from '../../types/types';
 import { damageTypes } from '../damage-types';
 import { statusEffects } from '../status-effects';
@@ -134,6 +134,16 @@ export const removeVulnerabilityUpgrades = (): Upgrade[] => {
       description: `You are no longer vulnerable to the ${name} status effect. You do not need to roll with disadvantage on saving throws to avoid or remove the effect.`,
       cost: 1,
       canPurchase: (character: Character) => isVulnerable(character, name),
+      onPurchase: (character: Character, upgrade: Upgrade) => updateResistances(
+        character._id,
+        character.experiencePoints,
+        upgrade.name,
+        upgrade.description,
+        upgrade.cost,
+        character.vulnerabilities.filter((v) => v !== name),
+        character.resistances,
+        character.immunities,
+      ),
     });
   });
 
@@ -143,6 +153,16 @@ export const removeVulnerabilityUpgrades = (): Upgrade[] => {
       description: `You are no longer vulnerable to ${name} damage. You no longer take double damage from it.`,
       cost: 1,
       canPurchase: (character: Character) => isVulnerable(character, name),
+      onPurchase: (character: Character, upgrade: Upgrade) => updateResistances(
+        character._id,
+        character.experiencePoints,
+        upgrade.name,
+        upgrade.description,
+        upgrade.cost,
+        character.vulnerabilities.filter((v) => v !== name),
+        character.resistances,
+        character.immunities,
+      ),
     });
   });
 
@@ -162,6 +182,16 @@ export const resistanceUpgrades = (): Upgrade[] => {
         && !isResistant(character, name)
         && !isImmune(character, name)
       ),
+      onPurchase: (character: Character, upgrade: Upgrade) => updateResistances(
+        character._id,
+        character.experiencePoints,
+        upgrade.name,
+        upgrade.description,
+        upgrade.cost,
+        character.vulnerabilities,
+        character.resistances.concat([name]),
+        character.immunities,
+      ),
     });
   });
 
@@ -174,6 +204,16 @@ export const resistanceUpgrades = (): Upgrade[] => {
         !isVulnerable(character, name)
         && !isResistant(character, name)
         && !isImmune(character, name)
+      ),
+      onPurchase: (character: Character, upgrade: Upgrade) => updateResistances(
+        character._id,
+        character.experiencePoints,
+        upgrade.name,
+        upgrade.description,
+        upgrade.cost,
+        character.vulnerabilities,
+        character.resistances.concat([name]),
+        character.immunities,
       ),
     });
   });
@@ -194,6 +234,16 @@ export const immunityUpgrades = (): Upgrade[] => {
         && isResistant(character, name)
         && !isImmune(character, name)
       ),
+      onPurchase: (character: Character, upgrade: Upgrade) => updateResistances(
+        character._id,
+        character.experiencePoints,
+        upgrade.name,
+        upgrade.description,
+        upgrade.cost,
+        character.vulnerabilities,
+        character.resistances.filter((r) => r !== name),
+        character.immunities.concat([name]),
+      ),
     });
   });
 
@@ -206,6 +256,16 @@ export const immunityUpgrades = (): Upgrade[] => {
         !isVulnerable(character, name)
         && isResistant(character, name)
         && !isImmune(character, name)
+      ),
+      onPurchase: (character: Character, upgrade: Upgrade) => updateResistances(
+        character._id,
+        character.experiencePoints,
+        upgrade.name,
+        upgrade.description,
+        upgrade.cost,
+        character.vulnerabilities,
+        character.resistances.filter((r) => r !== name),
+        character.immunities.concat([name]),
       ),
     });
   });
