@@ -1,5 +1,15 @@
+import { purchaseActionUpgrade } from '../../characters/update-character';
 import { Character, Upgrade } from '../../types/types';
 import { isUpgradeAvailable } from './prereqs';
+
+const purchaseAction = (character: Character, upgrade: Upgrade) => purchaseActionUpgrade(
+  character._id,
+  character.experiencePoints,
+  upgrade.name,
+  upgrade.description,
+  upgrade.cost,
+  upgrade.type ?? null,
+);
 
 export const reactionUpgrades = (): Upgrade[] => {
   const upgrades = [
@@ -9,6 +19,7 @@ export const reactionUpgrades = (): Upgrade[] => {
       cost: 1,
       type: 'reaction',
       canPurchase: (character: Character) => isUpgradeAvailable(character, 'Guard'),
+      onPurchase: purchaseAction,
     },
     {
       name: 'Dodge',
@@ -16,6 +27,7 @@ export const reactionUpgrades = (): Upgrade[] => {
       cost: 1,
       type: 'reaction',
       canPurchase: (character: Character) => isUpgradeAvailable(character, 'Dodge'),
+      onPurchase: purchaseAction,
     },
     {
       name: 'Counterattack',
@@ -23,6 +35,7 @@ export const reactionUpgrades = (): Upgrade[] => {
       cost: 3,
       type: 'reaction',
       canPurchase: (character: Character) => isUpgradeAvailable(character, 'Counterattack'),
+      onPurchase: purchaseAction,
     },
     {
       name: 'Neutralize Effect',
@@ -30,6 +43,7 @@ export const reactionUpgrades = (): Upgrade[] => {
       cost: 3,
       type: 'reaction',
       canPurchase: (character: Character) => isUpgradeAvailable(character, 'Neutralize Effect'),
+      onPurchase: purchaseAction,
     },
     {
       name: 'Reflect',
@@ -37,6 +51,7 @@ export const reactionUpgrades = (): Upgrade[] => {
       cost: 5,
       type: 'reaction',
       canPurchase: (character: Character) => isUpgradeAvailable(character, 'Reflect'),
+      onPurchase: purchaseAction,
     },
   ];
 
