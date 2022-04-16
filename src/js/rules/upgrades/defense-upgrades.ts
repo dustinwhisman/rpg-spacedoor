@@ -1,4 +1,6 @@
-import { Character, Upgrade } from '../../types/types';
+import { computedStat } from '../../characters/computed-stat';
+import { purchaseSimpleUpgrade } from '../../characters/update-character';
+import { Character, StatToUpdate, Upgrade } from '../../types/types';
 import { damageTypes } from '../damage-types';
 import { statusEffects } from '../status-effects';
 import {
@@ -12,6 +14,33 @@ export const shieldUpgrades = (): Upgrade[] => {
       description: "Wear an energy shield that will take damage before you lose HP. Shields have Shield Hit Points (SHP) equal to half of your Technobabble die's highest value. If the shield does not take damage during a round of combat, it regenerates one SHP at the end of your turn, unless it is at 0 SHP.",
       cost: 1,
       canPurchase: (character: Character) => isUpgradeAvailable(character, 'Energy Shield'),
+      onPurchase: (character: Character, upgrade: Upgrade) => {
+        const { die } = character.stats.find(({ name }) => name === 'Technobabble') ?? { die: 'd4' };
+
+        const statsToUpdate: StatToUpdate[] = [
+          {
+            statName: 'shieldHitPoints',
+            newValue: computedStat(die, 0),
+          },
+          {
+            statName: 'baseShieldHitPointMax',
+            newValue: computedStat(die, 0),
+          },
+          {
+            statName: 'shieldHitPointRegen',
+            newValue: 1,
+          },
+        ];
+
+        return purchaseSimpleUpgrade(
+          character._id,
+          character.experiencePoints,
+          upgrade.name,
+          upgrade.description,
+          upgrade.cost,
+          statsToUpdate,
+        );
+      },
     },
     {
       name: 'Max Shield Increase',

@@ -60,3 +60,8 @@ export interface Character {
   upgrades: Upgrade[],
   inventory: InventoryItem[],
 }
+
+export interface StatToUpdate {
+  statName: string,
+  newValue: number | string,
+}

@@ -1,5 +1,5 @@
 import { auth } from '../auth/auth';
-import { Character } from '../types/types';
+import { Character, StatToUpdate } from '../types/types';
 import { fetcher } from '../utilities/fetcher';
 import { normalizeCharacterData } from './normalize-character-data';
 
@@ -126,6 +126,56 @@ export const purchaseActionUpgrade = async (
         description: ${JSON.stringify(description)}
         cost: ${cost}
         ${type != null ? `type: ${JSON.stringify(type)}` : ''}
+      }) {
+        character ${FIELDS}
+      }
+    }
+  `;
+
+  const response = await fetcher('/api/graphql', {
+    method: 'POST',
+    body: JSON.stringify({ query }),
+  });
+
+  const { result } = await response.json();
+
+  const { character } = result.data.createUpgrade;
+
+  const normalizedData = normalizeCharacterData(character);
+
+  return normalizedData;
+};
+
+export const purchaseSimpleUpgrade = async (
+  id: string,
+  currentExperience: number,
+  name: string,
+  description: string,
+  cost: number,
+  statsToUpdate: StatToUpdate[],
+): Promise<Character | null> => {
+  const { uid } = auth.currentUser ?? {};
+  if (!uid) {
+    return null;
+  }
+
+  const query = `
+    mutation {
+      partialUpdateCharacter(id: ${JSON.stringify(id)}, data: {
+        experiencePoints: ${currentExperience - cost}
+        ${statsToUpdate.map(({ statName, newValue }) => `
+        ${statName}: ${typeof newValue === 'string' ? `${JSON.stringify(newValue)}` : newValue}
+        `)}
+      }) {
+        experiencePoints
+      }
+      createUpgrade(data: {
+        character: {
+          connect: ${JSON.stringify(id)}
+        }
+        name: ${JSON.stringify(name)}
+        description: ${JSON.stringify(description)}
+        cost: ${cost}
       }) {
         character ${FIELDS}
       }
