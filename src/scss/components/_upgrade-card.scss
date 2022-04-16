@@ -3,10 +3,10 @@
 .cmp-upgrade-card {
   display: grid;
   grid-template-areas:
-    "name"
-    "description"
-    "button-block"
-    "cost";
+    'name'
+    'description'
+    'button-block'
+    'cost';
   grid-template-rows: auto 1fr auto auto;
   gap: functions.fluid-size-fallback('deci');
   gap: functions.fluid-size('deci');
@@ -82,7 +82,6 @@
     grid-area: description;
     font-size: functions.fluid-size-fallback('deci');
     font-size: functions.fluid-size('deci');
-    // margin-bottom: 0.5rem;
   }
 
   &__button-block {
