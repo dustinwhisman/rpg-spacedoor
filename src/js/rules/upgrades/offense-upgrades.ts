@@ -1,8 +1,18 @@
-import { Character, Upgrade } from '../../types/types';
+import { purchaseActionUpgrade, purchaseSimpleUpgrade } from '../../characters/update-character';
+import { Character, StatToUpdate, Upgrade } from '../../types/types';
 import { damageTypes } from '../damage-types';
 import { fromDice, toDice } from '../dice';
 import { statusEffects } from '../status-effects';
 import { canIncreaseDie, isUpgradeAvailable } from './prereqs';
+
+const purchaseAction = (character: Character, upgrade: Upgrade) => purchaseActionUpgrade(
+  character._id,
+  character.experiencePoints,
+  upgrade.name,
+  upgrade.description,
+  upgrade.cost,
+  upgrade.type ?? null,
+);
 
 export const damageUpgrades = (): Upgrade[] => {
   const upgrades: Upgrade[] = [
@@ -11,6 +21,23 @@ export const damageUpgrades = (): Upgrade[] => {
       description: 'Increase the number of damage dice you roll by 1.',
       cost: 3,
       canPurchase: () => true,
+      onPurchase: (character: Character, upgrade: Upgrade) => {
+        const statsToUpdate: StatToUpdate[] = [
+          {
+            statName: 'numDamageDie',
+            newValue: character.numDamageDie + 1,
+          },
+        ];
+
+        return purchaseSimpleUpgrade(
+          character._id,
+          character.experiencePoints,
+          upgrade.name,
+          upgrade.description,
+          upgrade.cost,
+          statsToUpdate,
+        );
+      },
     },
     {
       name: 'Multi-target Attack (Level 1)',
@@ -18,6 +45,7 @@ export const damageUpgrades = (): Upgrade[] => {
       cost: 3,
       type: 'action',
       canPurchase: (character: Character) => isUpgradeAvailable(character, 'Multi-target Attack (Level 1)'),
+      onPurchase: purchaseAction,
     },
     {
       name: 'Multi-target Attack (Level 2)',
@@ -28,6 +56,7 @@ export const damageUpgrades = (): Upgrade[] => {
         !isUpgradeAvailable(character, 'Multi-target Attack (Level 1)')
         && isUpgradeAvailable(character, 'Multi-target Attack (Level 2)')
       ),
+      onPurchase: purchaseAction,
     },
     {
       name: 'Concentrated Attack',
@@ -35,6 +64,7 @@ export const damageUpgrades = (): Upgrade[] => {
       cost: 9,
       type: 'action',
       canPurchase: (character: Character) => isUpgradeAvailable(character, 'Concentrated Attack'),
+      onPurchase: purchaseAction,
     },
   ];
 
@@ -44,6 +74,23 @@ export const damageUpgrades = (): Upgrade[] => {
       description: `Increase your Damage die from a ${fromDice[i]} to a ${toDice[i]}.`,
       cost: (i + 1) * 2,
       canPurchase: (character: Character) => canIncreaseDie(character, 'damageDie', fromDice[i]),
+      onPurchase: (character: Character, upgrade: Upgrade) => {
+        const statsToUpdate: StatToUpdate[] = [
+          {
+            statName: 'damageDie',
+            newValue: toDice[i],
+          },
+        ];
+
+        return purchaseSimpleUpgrade(
+          character._id,
+          character.experiencePoints,
+          upgrade.name,
+          upgrade.description,
+          upgrade.cost,
+          statsToUpdate,
+        );
+      },
     });
   }
 
@@ -60,6 +107,7 @@ export const damageTypeUpgrades = () => {
       cost: 3,
       type: 'action',
       canPurchase: (character: Character) => isUpgradeAvailable(character, `Bonus ${name} Damage`),
+      onPurchase: purchaseAction,
     });
 
     upgrades.push({
@@ -68,6 +116,7 @@ export const damageTypeUpgrades = () => {
       cost: 6,
       type: 'action',
       canPurchase: (character: Character) => isUpgradeAvailable(character, `Base ${name} Damage`),
+      onPurchase: purchaseAction,
     });
   });
 
@@ -86,6 +135,7 @@ export const statusEffectUpgrades = () => {
         cost: 3,
         type: 'action',
         canPurchase: (character: Character) => isUpgradeAvailable(character, `Bonus ${name} Damage`),
+        onPurchase: purchaseAction,
       });
     });
 
