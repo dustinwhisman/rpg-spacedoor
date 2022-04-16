@@ -1,4 +1,4 @@
-import { purchaseSkillUpgrade } from '../../characters/update-character';
+import { moveSkillToTechnobabble, purchaseSkillUpgrade } from '../../characters/update-character';
 import { Character, Upgrade } from '../../types/types';
 import { fromDice, toDice } from '../dice';
 import { stats } from '../stats';
@@ -96,6 +96,22 @@ const useTechnobabbleForSkill = (statName: string, skillName: string): Upgrade[]
     description: `Use Technobabble instead of ${statName} for ${skillName} checks.`,
     cost: 3,
     canPurchase: (character: Character) => canUseStatForSkill(character, 'Technobabble', skillName),
+    onPurchase: (character: Character, upgrade: Upgrade) => {
+      const { _id: technobabbleId, die: technobabbleDie } = character.stats.find(({ name }) => name === 'Technobabble') ?? { _id: '' };
+      const { skills } = character.stats.find(({ name }) => name === statName) ?? { skills: [] };
+      const { _id: skillId } = skills.find(({ name }) => name === skillName) ?? { _id: '' };
+
+      return moveSkillToTechnobabble(
+        character._id,
+        character.experiencePoints,
+        upgrade.name,
+        upgrade.description,
+        upgrade.cost,
+        skillId ?? '',
+        technobabbleId ?? '',
+        technobabbleDie ?? 'd4',
+      );
+    },
   }];
 
   return upgrades;
