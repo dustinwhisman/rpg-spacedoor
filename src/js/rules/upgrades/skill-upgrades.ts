@@ -2,7 +2,12 @@ import { moveSkillToTechnobabble, purchaseSkillUpgrade } from '../../characters/
 import { Character, Upgrade } from '../../types/types';
 import { fromDice, toDice } from '../dice';
 import { stats } from '../stats';
-import { canAddBonusToSkillDie, canAddProficiencyDie, canUseStatForSkill } from './prereqs';
+import {
+  canAddBonusToSkillDie,
+  canAddProficiencyDie,
+  canUseStatForSkill,
+  isUpgradeAvailable,
+} from './prereqs';
 
 const addProficiencyDie = (statName: string, skillName: string): Upgrade[] => {
   const upgrades = [{
@@ -11,7 +16,10 @@ const addProficiencyDie = (statName: string, skillName: string): Upgrade[] => {
     name: `${skillName} Proficiency (Level 1)`,
     description: `Roll a d4 in addition to your ${statName} die on ${skillName} checks. Your ${statName} die must be at least a d8.`,
     cost: 1,
-    canPurchase: (character: Character) => canAddProficiencyDie(character, statName, skillName, 'd4'),
+    canPurchase: (character: Character) => (
+      canAddProficiencyDie(character, statName, skillName, 'd4')
+      || (!isUpgradeAvailable(character, `Tech Augmented ${skillName}`) && canAddProficiencyDie(character, 'Technobabble', skillName, 'd4'))
+    ),
     onPurchase: (character: Character, upgrade: Upgrade) => {
       const { skills } = character.stats.find(({ name }) => name === statName) ?? { skills: [] };
       const { _id: skillId } = skills.find(({ name }) => name === skillName) ?? { _id: '' };
@@ -38,6 +46,7 @@ const addProficiencyDie = (statName: string, skillName: string): Upgrade[] => {
       cost: 1,
       canPurchase: (character: Character) => (
         canAddProficiencyDie(character, statName, skillName, toDice[i])
+        || (!isUpgradeAvailable(character, `Tech Augmented ${skillName}`) && canAddProficiencyDie(character, 'Technobabble', skillName, toDice[i]))
       ),
       onPurchase: (character: Character, upgrade: Upgrade) => {
         const { skills } = character.stats.find(({ name }) => name === statName) ?? { skills: [] };
@@ -67,7 +76,10 @@ const addPermanentBonus = (statName: string, skillName: string): Upgrade[] => {
     name: `${skillName} Bonus`,
     description: `Add a permanent +1 bonus to all ${skillName} checks, or increase your existing bonus by +1. The maximum bonus is half of your ${statName} die's highest value.`,
     cost: 1,
-    canPurchase: (character: Character) => canAddBonusToSkillDie(character, statName, skillName),
+    canPurchase: (character: Character) => (
+      canAddBonusToSkillDie(character, statName, skillName)
+      || (!isUpgradeAvailable(character, `Tech Augmented ${skillName}`) && canAddBonusToSkillDie(character, 'Technobabble', skillName))
+    ),
     onPurchase: (character: Character, upgrade: Upgrade) => {
       const { skills } = character.stats.find(({ name }) => name === statName) ?? { skills: [] };
       const { _id: skillId, bonus } = skills.find(({ name }) => name === skillName) ?? { _id: '', bonus: 0 };

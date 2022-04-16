@@ -17,7 +17,10 @@ export const CharacterSkills = ({ stats }: { stats: Stat[] }) => {
   const skills: Skill[] = [];
   stats.forEach((stat) => {
     stat.skills.forEach((skill) => {
-      skills.push(skill);
+      skills.push({
+        ...skill,
+        die: stat.die,
+      });
     });
   });
 
