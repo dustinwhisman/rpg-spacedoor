@@ -99,9 +99,9 @@ export const shieldUpgrades = (): Upgrade[] => {
     },
     {
       name: 'Damage Threshold Increase',
-      description: 'Increase your Damage Threshold (DT) by 1.',
+      description: 'Increase your Damage Threshold (DT) by 1. Maximum bonus is 10.',
       cost: 1,
-      canPurchase: () => true,
+      canPurchase: (character: Character) => character.damageThresholdBonus < 10,
       onPurchase: (character: Character, upgrade: Upgrade) => {
         const statsToUpdate: StatToUpdate[] = [
           {

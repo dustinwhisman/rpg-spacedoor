@@ -40,6 +40,29 @@ export const damageUpgrades = (): Upgrade[] => {
       },
     },
     {
+      name: 'Precision',
+      description: 'Add a +1 bonus to all damage rolls. Maximum of 10.',
+      cost: 1,
+      canPurchase: (character: Character) => character.damageBonus < 10,
+      onPurchase: (character: Character, upgrade: Upgrade) => {
+        const statsToUpdate: StatToUpdate[] = [
+          {
+            statName: 'damageBonus',
+            newValue: character.damageBonus + 1,
+          },
+        ];
+
+        return purchaseSimpleUpgrade(
+          character._id,
+          character.experiencePoints,
+          upgrade.name,
+          upgrade.description,
+          upgrade.cost,
+          statsToUpdate,
+        );
+      },
+    },
+    {
       name: 'Multi-target Attack (Level 1)',
       description: 'Spend an Action Point to spread your damage between multiple targets. Roll your Damage dice, and allocate the resulting damage between the targets you want to hit.',
       cost: 3,
