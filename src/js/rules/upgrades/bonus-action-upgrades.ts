@@ -1,6 +1,16 @@
+import { purchaseActionUpgrade } from '../../characters/update-character';
 import { Character, Upgrade } from '../../types/types';
 import { healingActions, statusEffectActions } from './action-upgrades';
 import { isUpgradeAvailable } from './prereqs';
+
+const purchaseAction = (character: Character, upgrade: Upgrade) => purchaseActionUpgrade(
+  character._id,
+  character.experiencePoints,
+  upgrade.name,
+  upgrade.description,
+  upgrade.cost,
+  upgrade.type ?? null,
+);
 
 export const bonusActions = (): Upgrade[] => {
   const upgrades = [
@@ -10,6 +20,7 @@ export const bonusActions = (): Upgrade[] => {
       cost: 1,
       type: 'bonus-action',
       canPurchase: (character: Character) => isUpgradeAvailable(character, 'Inspiration'),
+      onPurchase: purchaseAction,
     },
     {
       name: 'First Aid',
@@ -17,6 +28,7 @@ export const bonusActions = (): Upgrade[] => {
       cost: 1,
       type: 'bonus-action',
       canPurchase: (character: Character) => isUpgradeAvailable(character, 'First Aid'),
+      onPurchase: purchaseAction,
     },
     {
       name: 'Surge',
@@ -24,6 +36,7 @@ export const bonusActions = (): Upgrade[] => {
       cost: 1,
       type: 'bonus-action',
       canPurchase: (character: Character) => isUpgradeAvailable(character, 'Surge'),
+      onPurchase: purchaseAction,
     },
     {
       name: 'Hide',
@@ -31,6 +44,7 @@ export const bonusActions = (): Upgrade[] => {
       cost: 1,
       type: 'bonus-action',
       canPurchase: (character: Character) => isUpgradeAvailable(character, 'Hide'),
+      onPurchase: purchaseAction,
     },
   ];
 
@@ -50,6 +64,7 @@ export const bonusHealingActions = (): Upgrade[] => {
         !isUpgradeAvailable(character, name)
         && isUpgradeAvailable(character, `Bonus Action: ${name}`)
       ),
+      onPurchase: purchaseAction,
     });
   });
 
@@ -69,6 +84,7 @@ export const bonusStatusEffectActions = (): Upgrade[] => {
         !isUpgradeAvailable(character, name)
         && isUpgradeAvailable(character, `Bonus Action: ${name}`)
       ),
+      onPurchase: purchaseAction,
     });
   });
 
