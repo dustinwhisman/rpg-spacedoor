@@ -1,3 +1,4 @@
+import { purchaseStatUpgrade } from '../../characters/update-character';
 import { Character, Upgrade } from '../../types/types';
 import { fromDice, toDice } from '../dice';
 import { stats } from '../stats';
@@ -13,6 +14,20 @@ const bumpToNextSize = (name: string): Upgrade[] => {
       description: `Increase your ${name} from a ${fromDice[i]} to a ${toDice[i]}.`,
       cost: i + 1,
       canPurchase: (character: Character) => canBumpStatDie(character, name, fromDice[i]),
+      onPurchase: (character: Character, upgrade: Upgrade) => {
+        const { _id: statId } = character.stats.find((stat) => stat.name === name) ?? { _id: '' };
+
+        return purchaseStatUpgrade(
+          character._id,
+          character.experiencePoints,
+          upgrade.name,
+          upgrade.description,
+          upgrade.cost,
+          statId ?? '',
+          'die',
+          toDice[i],
+        );
+      },
     });
   }
 
@@ -26,6 +41,20 @@ const addPermanentBonus = (name: string): Upgrade[] => {
     description: `Add a permanent +1 bonus to all ${name} rolls, or increase your existing bonus by +1. The maximum bonus is half of your ${name} die's highest value`,
     cost: 1,
     canPurchase: (character: Character) => canAddBonusToStatDie(character, name),
+    onPurchase: (character: Character, upgrade: Upgrade) => {
+      const { _id: statId, bonus } = character.stats.find((stat) => stat.name === name) ?? { _id: '', bonus: 0 };
+
+      return purchaseStatUpgrade(
+        character._id,
+        character.experiencePoints,
+        upgrade.name,
+        upgrade.description,
+        upgrade.cost,
+        statId ?? '',
+        'bonus',
+        bonus + 1,
+      );
+    },
   }];
 
   return upgrades;
@@ -38,6 +67,20 @@ const addDifficultyBonus = (name: string): Upgrade[] => {
     description: `Increase your ${name} DC by 1. You can increase this DC by up to half of your ${name} die's highest value.`,
     cost: 1,
     canPurchase: (character: Character) => canIncreaseStatDifficulty(character, name),
+    onPurchase: (character: Character, upgrade: Upgrade) => {
+      const { _id: statId, dcBonus } = character.stats.find((stat) => stat.name === name) ?? { _id: '', dcBonus: 0 };
+
+      return purchaseStatUpgrade(
+        character._id,
+        character.experiencePoints,
+        upgrade.name,
+        upgrade.description,
+        upgrade.cost,
+        statId ?? '',
+        'dcBonus',
+        dcBonus + 1,
+      );
+    },
   }];
 
   return upgrades;
