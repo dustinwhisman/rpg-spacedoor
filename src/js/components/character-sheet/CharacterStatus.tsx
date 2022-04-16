@@ -36,7 +36,7 @@ export const CharacterStatus = ({
       <p>
         {`HP: ${hitPoints}/${baseHitPointMax * hitPointMultiplier}`}
       </p>
-      <UpdateStatus id={id} statName="hitPoints" value={hitPoints} maxValue={baseHitPointMax} update={update} />
+      <UpdateStatus id={id} statName="hitPoints" value={hitPoints} maxValue={baseHitPointMax * hitPointMultiplier} update={update} />
     </div>
     {hitPointRegen > 0 && (
       <p>
@@ -48,7 +48,7 @@ export const CharacterStatus = ({
         <p>
           {`Shield HP: ${shieldHitPoints}/${baseShieldHitPointMax * shieldHitPointMultiplier}`}
         </p>
-        <UpdateStatus id={id} statName="shieldHitPoints" value={shieldHitPoints} maxValue={baseShieldHitPointMax} update={update} />
+        <UpdateStatus id={id} statName="shieldHitPoints" value={shieldHitPoints} maxValue={baseShieldHitPointMax * shieldHitPointMultiplier} update={update} />
       </div>
     )}
     {shieldHitPointRegen > 0 && (

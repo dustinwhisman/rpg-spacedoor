@@ -47,6 +47,29 @@ export const shieldUpgrades = (): Upgrade[] => {
       description: "Increase your Shield Hit Points (SHP) by half of your Technobabble die's highest value. This acts as a multiplier of base SHP, so if your Technobabble die changes, your SHP will change accordingly.",
       cost: 1,
       canPurchase: () => true,
+      onPurchase: (character: Character, upgrade: Upgrade) => {
+        const { die } = character.stats.find(({ name }) => name === 'Technobabble') ?? { die: 'd4' };
+
+        const statsToUpdate: StatToUpdate[] = [
+          {
+            statName: 'shieldHitPointMultiplier',
+            newValue: character.shieldHitPointMultiplier + 1,
+          },
+          {
+            statName: 'shieldHitPoints',
+            newValue: character.shieldHitPoints + computedStat(die, 0),
+          },
+        ];
+
+        return purchaseSimpleUpgrade(
+          character._id,
+          character.experiencePoints,
+          upgrade.name,
+          upgrade.description,
+          upgrade.cost,
+          statsToUpdate,
+        );
+      },
     },
     {
       name: 'Improved Shield Regen',
@@ -56,12 +79,46 @@ export const shieldUpgrades = (): Upgrade[] => {
         !isUpgradeAvailable(character, 'Energy Shield')
         && isLessThanHalfOfStat(character, 'Technobabble', 'shieldHitPointRegen')
       ),
+      onPurchase: (character: Character, upgrade: Upgrade) => {
+        const statsToUpdate: StatToUpdate[] = [
+          {
+            statName: 'shieldHitPointRegen',
+            newValue: character.shieldHitPointRegen + 1,
+          },
+        ];
+
+        return purchaseSimpleUpgrade(
+          character._id,
+          character.experiencePoints,
+          upgrade.name,
+          upgrade.description,
+          upgrade.cost,
+          statsToUpdate,
+        );
+      },
     },
     {
       name: 'Damage Threshold Increase',
       description: 'Increase your Damage Threshold (DT) by 1.',
       cost: 1,
       canPurchase: () => true,
+      onPurchase: (character: Character, upgrade: Upgrade) => {
+        const statsToUpdate: StatToUpdate[] = [
+          {
+            statName: 'damageThresholdBonus',
+            newValue: character.damageThresholdBonus + 1,
+          },
+        ];
+
+        return purchaseSimpleUpgrade(
+          character._id,
+          character.experiencePoints,
+          upgrade.name,
+          upgrade.description,
+          upgrade.cost,
+          statsToUpdate,
+        );
+      },
     },
   ];
 

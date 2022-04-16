@@ -5,6 +5,7 @@ export const SecondaryStats = ({
   damageDie,
   damageBonus,
   damageThreshold,
+  damageThresholdBonus,
   numHealingDie,
   healingDie,
   healingBonus,
@@ -13,6 +14,7 @@ export const SecondaryStats = ({
   damageDie: string,
   damageBonus: number,
   damageThreshold: number,
+  damageThresholdBonus: number,
   numHealingDie: number,
   healingDie: string,
   healingBonus: number,
@@ -22,7 +24,7 @@ export const SecondaryStats = ({
       {`Damage Dice: ${numDamageDie > 1 ? numDamageDie : ''}${damageDie}${damageBonus > 0 ? ` + ${damageBonus}` : ''}`}
     </p>
     <p>
-      {`Damage Threshold: ${damageThreshold}`}
+      {`Damage Threshold: ${damageThreshold + damageThresholdBonus}`}
     </p>
     <p>
       {`Healing Dice: ${numHealingDie > 1 ? numHealingDie : ''}${healingDie}${healingBonus > 0 ? ` + ${healingBonus}` : ''}`}
