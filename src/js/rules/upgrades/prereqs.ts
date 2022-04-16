@@ -85,7 +85,10 @@ export const canAddBonusToSkillDie = (
     return false;
   }
 
-  const { bonus } = skills.find((skill) => skill.name === skillName) ?? { bonus: 0 };
+  const { bonus } = skills.find((skill) => skill.name === skillName) ?? {};
+  if (bonus == null) {
+    return false;
+  }
 
   const [, dieValue] = statDie.split('d');
   const numericDieValue = Number.parseInt(dieValue, 10);

@@ -139,9 +139,13 @@ export const purchaseActionUpgrade = async (
 
   const { result } = await response.json();
 
+  const { experiencePoints } = result.data.partialUpdateCharacter;
   const { character } = result.data.createUpgrade;
 
-  const normalizedData = normalizeCharacterData(character);
+  const normalizedData = normalizeCharacterData({
+    ...character,
+    experiencePoints,
+  });
 
   return normalizedData;
 };
@@ -189,9 +193,13 @@ export const purchaseSimpleUpgrade = async (
 
   const { result } = await response.json();
 
+  const { experiencePoints } = result.data.partialUpdateCharacter;
   const { character } = result.data.createUpgrade;
 
-  const normalizedData = normalizeCharacterData(character);
+  const normalizedData = normalizeCharacterData({
+    ...character,
+    experiencePoints,
+  });
 
   return normalizedData;
 };
@@ -241,9 +249,21 @@ export const updateResistances = async (
 
   const { result } = await response.json();
 
+  const {
+    experiencePoints,
+    vulnerabilities,
+    resistances,
+    immunities,
+  } = result.data.partialUpdateCharacter;
   const { character } = result.data.createUpgrade;
 
-  const normalizedData = normalizeCharacterData(character);
+  const normalizedData = normalizeCharacterData({
+    ...character,
+    experiencePoints,
+    vulnerabilities,
+    resistances,
+    immunities,
+  });
 
   return normalizedData;
 };
@@ -295,9 +315,13 @@ export const purchaseStatUpgrade = async (
 
   const { result } = await response.json();
 
+  const { experiencePoints } = result.data.partialUpdateCharacter;
   const { character } = result.data.createUpgrade;
 
-  const normalizedData = normalizeCharacterData(character);
+  const normalizedData = normalizeCharacterData({
+    ...character,
+    experiencePoints,
+  });
 
   return normalizedData;
 };
@@ -349,9 +373,13 @@ export const purchaseSkillUpgrade = async (
 
   const { result } = await response.json();
 
+  const { experiencePoints } = result.data.partialUpdateCharacter;
   const { character } = result.data.createUpgrade;
 
-  const normalizedData = normalizeCharacterData(character);
+  const normalizedData = normalizeCharacterData({
+    ...character,
+    experiencePoints,
+  });
 
   return normalizedData;
 };
@@ -408,9 +436,13 @@ export const moveSkillToTechnobabble = async (
 
   const { result } = await response.json();
 
+  const { experiencePoints } = result.data.partialUpdateCharacter;
   const { character } = result.data.createUpgrade;
 
-  const normalizedData = normalizeCharacterData(character);
+  const normalizedData = normalizeCharacterData({
+    ...character,
+    experiencePoints,
+  });
 
   return normalizedData;
 };
