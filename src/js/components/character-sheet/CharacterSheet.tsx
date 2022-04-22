@@ -24,6 +24,7 @@ import { CharacterStatus } from './CharacterStatus';
 import { CharacterStats } from './CharacterStats';
 import { SecondaryStats } from './SecondaryStats';
 import { CharacterSkills } from './CharacterSkills';
+import { Actions } from './Actions';
 import { CharacterTraits } from './CharacterTraits';
 import { UpgradeCategory } from './UpgradeCategory';
 import { DeleteCharacter } from './DeleteCharacter';
@@ -41,6 +42,9 @@ const CharacterSheet = ({ character }: { character: Character }) => {
       <SecondaryStats {...characterData} />
       <CharacterSkills stats={characterData.stats} />
       <CharacterTraits {...characterData} />
+      <Actions upgrades={characterData.upgrades} actionType="action" />
+      <Actions upgrades={characterData.upgrades} actionType="bonus-action" />
+      <Actions upgrades={characterData.upgrades} actionType="reaction" />
 
       <h2>
         Available Upgrades
