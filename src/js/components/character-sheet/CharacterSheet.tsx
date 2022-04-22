@@ -46,9 +46,11 @@ const CharacterSheet = ({ character }: { character: Character }) => {
       <Actions upgrades={characterData.upgrades} actionType="bonus-action" />
       <Actions upgrades={characterData.upgrades} actionType="reaction" />
 
-      <h2>
-        Available Upgrades
-      </h2>
+      {characterData.experiencePoints > 0 && (
+        <h2>
+          Available Upgrades
+        </h2>
+      )}
 
       <StatUpgrades characterData={characterData} update={setCharacterData} />
       <SkillUpgrades characterData={characterData} update={setCharacterData} />

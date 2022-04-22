@@ -21,16 +21,7 @@ export const UpgradeCategory = (
     ));
 
   if (!availableUpgrades.length) {
-    return (
-      <>
-        <h3>
-          {title}
-        </h3>
-        <p>
-          {`You don't qualify for any ${title} yet.`}
-        </p>
-      </>
-    );
+    return null;
   }
 
   return (

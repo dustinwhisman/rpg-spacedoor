@@ -17,16 +17,7 @@ export const StatUpgrades = ({
     )));
 
   if (!statsWithUpgrades.length) {
-    return (
-      <>
-        <h3>
-          Stat Upgrades
-        </h3>
-        <p>
-          You don&apos;t qualify for any Stat Upgrades yet.
-        </p>
-      </>
-    );
+    return null;
   }
 
   return (

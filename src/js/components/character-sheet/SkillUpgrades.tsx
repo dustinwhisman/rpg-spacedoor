@@ -17,16 +17,7 @@ export const SkillUpgrades = ({
     )));
 
   if (!skillsWithUpgrades.length) {
-    return (
-      <>
-        <h3>
-          Skill Upgrades
-        </h3>
-        <p>
-          You don&apos;t qualify for any Skill Upgrades yet.
-        </p>
-      </>
-    );
+    return null;
   }
 
   return (

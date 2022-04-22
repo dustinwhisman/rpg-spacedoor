@@ -8,6 +8,4 @@ layout: layout.njk
 
 [Create New Character](/create-character)
 
-## Your Characters
-
-<ul data-character-nav-list></ul>
+<ul class="util-delist" data-character-nav-list></ul>

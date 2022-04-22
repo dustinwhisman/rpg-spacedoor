@@ -21,3 +21,8 @@
   display: flex;
   gap: functions.fluid-size-fallback('base');
 }
+
+.util-delist {
+  list-style: none;
+  padding-left: 0;
+}
