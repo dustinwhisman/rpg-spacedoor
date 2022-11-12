@@ -59,8 +59,8 @@ const SortableList = ({ options, type }: { options: string[], type: 'primary' | 
 
     if (over?.id != null && active.id !== over.id) {
       setItems((itemList) => {
-        const oldIndex = itemList.indexOf(active.id);
-        const newIndex = itemList.indexOf(over.id);
+        const oldIndex = itemList.indexOf(active.id.toString());
+        const newIndex = itemList.indexOf(over.id.toString());
 
         return arrayMove(itemList, oldIndex, newIndex);
       });
