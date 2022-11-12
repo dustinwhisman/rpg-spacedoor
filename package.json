@@ -46,6 +46,7 @@
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "jest": "^27.5.1",
+    "npm-check-updates": "^16.3.25",
     "npm-run-all": "^4.1.5",
     "pa11y-ci": "^3.0.1",
     "rimraf": "^3.0.2",
