@@ -26,7 +26,8 @@
     "test": "jest --config=jest.config.js",
     "test:ci": "npm run test -- --coverage",
     "test:mutate": "stryker run",
-    "update-deps": "npx npm-check-updates --doctor -u"
+    "update-deps": "ncu -u",
+    "postupdate-deps": "npm install"
   },
   "keywords": [],
   "author": "",
