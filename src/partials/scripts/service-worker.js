@@ -1,4 +1,4 @@
-/* global VERSION self caches fetch */
+/* global VERSION self caches */
 /* eslint-disable no-restricted-globals */
 
 const CACHE_KEYS = {
