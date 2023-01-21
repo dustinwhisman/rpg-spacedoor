@@ -67,7 +67,7 @@
     "@types/react-dom": "^18.0.10",
     "dotenv": "^16.0.3",
     "firebase": "^9.15.0",
-    "firebase-admin": "^11.4.1",
+    "firebase-admin": "^11.5.0",
     "middy": "^0.36.0",
     "node-fetch": "^3.3.0",
     "react": "^18.2.0",
