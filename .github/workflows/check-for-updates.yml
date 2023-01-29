@@ -1,0 +1,39 @@
+name: Check for npm updates
+
+on:
+  schedule:
+    - cron: "0 13 * * 6"
+
+jobs:
+  check-for-updates:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{secrets.GH_PAT}}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+      - name: install npm dependencies
+        run: npm ci
+      - name: Check for updates
+        run: npx npm-check-updates -u > updates.txt && git diff package.json | grep '^[+-]'
+      - name: Create a pull request if there are updates
+        run: |
+          if [ $? -eq 0 ]; then
+            git config --global user.email "${{secrets.GH_EMAIL}}"
+            git config --global user.name "${{secrets.GH_NAME}}"
+
+            git checkout -b chore--update-deps-$(date +'%Y-%m-%d')
+            npm install
+            git add package.json package-lock.json
+            git commit -m "chore: update npm dependencies"
+            git push --set-upstream origin chore--update-deps-$(date +'%Y-%m-%d')
+
+            updates=$(sed '1,2d;$d' updates.txt)
+            echo -e "### Description\n\nThis updates the following npm packages to their latest versions.\n\n$updates\n\n#### To Validate\n\n1. Make sure all PR Checks have passed\n2. Check the deploy preview to make sure nothing is obviously broken\n3. Check the changelogs of affected packages to make sure there are no breaking changes to account for" > pr-body.txt
+
+            gh pr create --title "chore: update npm dependencies" --body "$(cat pr-body.txt)"
+          fi
