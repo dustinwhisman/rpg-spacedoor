@@ -3,3 +3,6 @@ dist
 .env
 coverage
 .stryker-tmp
+
+# Local Netlify folder
+.netlify
