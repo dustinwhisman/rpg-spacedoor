@@ -42,7 +42,7 @@
     "@stryker-mutator/jest-runner": "^6.3.1",
     "@types/jest": "^29.4.0",
     "babel-loader": "^9.1.2",
-    "esbuild": "^0.17.5",
+    "esbuild": "^0.17.7",
     "eslint": "^8.33.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
