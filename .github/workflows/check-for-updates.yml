@@ -26,5 +26,5 @@ jobs:
             updates=$(sed '1,2d;$d' updates.txt)
             echo -e "### Description\n\nThe following npm packages should be updated to their latest versions.\n\n$updates\n\n" > issue-body.txt
 
-            gh issue create -t "Update npm dependencies" -b "$(cat issue-body.txt)" -a ${{ secrets.GH_PAT }}
+            gh issue create -t "Update npm dependencies" -b "$(cat issue-body.txt)"
           fi
