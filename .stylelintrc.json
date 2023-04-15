@@ -4,6 +4,7 @@
   ],
   "rules": {
     "function-no-unknown": null,
-    "string-quotes": "single"
+    "string-quotes": "single",
+    "media-feature-range-notation": null
   }
 }
